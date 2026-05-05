@@ -10,6 +10,72 @@
 	<!-- Start of headStart -->
     
     <!-- End of headStart -->
+	<style id="custom-logo-replace">
+		/* Stable replacement: Framer re-renders after hydration, so we overlay via CSS. */
+		a.framer-z6723t.framer-1gzzwvz {
+			position: relative;
+			display: inline-block;
+			/* Keep a stable clickable box */
+			width: 260px; /* logo width + left offset */
+			height: 52px;
+		}
+		a.framer-z6723t.framer-1gzzwvz::before {
+			content: "";
+			position: absolute;
+			left: 40px;
+			top: 0;
+			width: 220px;
+			height: 52px;
+			pointer-events: none;
+			background-image: url("/assets/custom/logo.png");
+			background-position: left center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		/* Hide the original text (keeps layout stable) */
+		a.framer-z6723t.framer-1gzzwvz p.framer-text {
+			opacity: 0 !important;
+			font-size: 0 !important;
+			line-height: 0 !important;
+		}
+
+		/* Prevent Amazon Music card text overlapping the left visuals */
+		.framer-Lnnw7.framer-1thadxs {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+		.framer-Lnnw7.framer-1thadxs .framer-1hg2tjf,
+		.framer-Lnnw7.framer-1thadxs .framer-succsn,
+		.framer-Lnnw7.framer-1thadxs .framer-c5nc6c,
+		.framer-Lnnw7.framer-1thadxs .framer-d0wwm-container {
+			left: 660px !important;
+			right: auto !important;
+			max-width: 520px !important;
+		}
+	</style>
+	<script id="custom-logo-home-link">
+		// Ensure clicking the logo always goes to the homepage and avoid Framer highlight overlays.
+		addEventListener("DOMContentLoaded", () => {
+			const a = document.querySelector("a.framer-z6723t.framer-1gzzwvz");
+			if (!a) return;
+			a.setAttribute("href", "/");
+
+			// Remove Framer's highlight attribute if present (can show a white overlay on click)
+			const highlighted = a.querySelector("[data-highlight]");
+			if (highlighted) highlighted.removeAttribute("data-highlight");
+
+			// Capture click to guarantee navigation to home.
+			a.addEventListener(
+				"click",
+				(e) => {
+					e.preventDefault();
+					e.stopPropagation();
+					window.location.href = "/";
+				},
+				true
+			);
+		});
+	</script>
 	<meta name="viewport" content="width=1200">
 	<meta name="generator" content="Framer 4da6613">
 	<title>My Framer Site</title>
