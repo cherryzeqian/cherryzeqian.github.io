@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Penny — Case study draft</title>
+	<meta name="description" content="Penny — portfolio case study draft (structure inspired by a reference page).">
+	<style>
+		:root {
+			color-scheme: light;
+			--bg: #fafafa;
+			--surface: #ffffff;
+			--text: #111827;
+			--muted: #6b7280;
+			--border: #e5e7eb;
+			--accent: #cb56e7;
+			--accent-2: #702781;
+			--radius: 12px;
+			--shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+			--max: 980px;
+			--tocw: 220px;
+			--gap: 28px;
+		}
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		html, body { margin: 0; padding: 0; }
+		body {
+			font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+			background: var(--bg);
+			color: var(--text);
+			line-height: 1.65;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+		a { color: inherit; }
+		code { font-size: 0.92em; background: #f3f4f6; padding: 0.15em 0.35em; border-radius: 6px; }
+		header {
+			position: sticky;
+			top: 0;
+			z-index: 20;
+			border-bottom: 1px solid var(--border);
+			background: rgba(255, 255, 255, 0.92);
+			backdrop-filter: blur(10px);
+		}
+		.header-inner {
+			max-width: calc(var(--max) + var(--tocw) + var(--gap));
+			margin: 0 auto;
+			padding: 0.9rem 1.25rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+		}
+		.header-inner a {
+			font-weight: 650;
+			text-decoration: none;
+			font-size: 0.95rem;
+		}
+		.header-inner a:hover { text-decoration: underline; text-underline-offset: 4px; }
+		.badge {
+			font-size: 0.75rem;
+			font-weight: 650;
+			color: var(--muted);
+			border: 1px solid var(--border);
+			background: #fff;
+			padding: 0.25rem 0.5rem;
+			border-radius: 999px;
+		}
+		.layout {
+			flex: 1;
+			width: 100%;
+			max-width: calc(var(--max) + var(--tocw) + var(--gap));
+			margin: 0 auto;
+			padding: 1.75rem 1.25rem 3rem;
+			display: grid;
+			grid-template-columns: minmax(0, 1fr);
+			gap: var(--gap);
+		}
+		@media (min-width: 900px) {
+			.layout {
+				grid-template-columns: var(--tocw) minmax(0, 1fr);
+				align-items: start;
+			}
+		}
+		.toc {
+			position: sticky;
+			top: 64px;
+			align-self: start;
+			padding: 1rem;
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			box-shadow: var(--shadow);
+		}
+		.toc h2 {
+			font-size: 0.78rem;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: var(--muted);
+			margin: 0 0 0.75rem;
+		}
+		.toc ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: grid;
+			gap: 0.35rem;
+		}
+		.toc a {
+			display: block;
+			text-decoration: none;
+			font-size: 0.88rem;
+			color: var(--text);
+			padding: 0.35rem 0.45rem;
+			border-radius: 8px;
+		}
+		.toc a:hover { background: #f3f4f6; }
+		.hero {
+			padding-bottom: 0.25rem;
+		}
+		.hero h1 {
+			font-size: clamp(1.65rem, 3.6vw, 2.35rem);
+			line-height: 1.15;
+			margin: 0 0 1rem;
+			letter-spacing: -0.02em;
+		}
+		.hero-sub {
+			margin: 0 0 1.25rem;
+			color: var(--muted);
+			max-width: 62ch;
+		}
+		.meta-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+			gap: 0.75rem;
+			margin: 0 0 1.25rem;
+		}
+		.meta {
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			padding: 0.85rem 0.9rem;
+			box-shadow: var(--shadow);
+		}
+		.meta dt {
+			font-size: 0.72rem;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: var(--muted);
+			margin: 0 0 0.35rem;
+		}
+		.meta dd { margin: 0; font-weight: 650; font-size: 0.95rem; }
+		.notice {
+			background: #fff7ed;
+			border: 1px solid #fed7aa;
+			color: #9a3412;
+			border-radius: var(--radius);
+			padding: 0.85rem 1rem;
+			font-size: 0.92rem;
+			margin: 0 0 1.5rem;
+		}
+		.notice strong { font-weight: 750; }
+		section {
+			padding: 2rem 0;
+			border-top: 1px solid var(--border);
+			scroll-margin-top: 76px;
+		}
+		section:first-of-type { border-top: none; padding-top: 0.25rem; }
+		h2.section-title {
+			font-size: 1.05rem;
+			text-transform: uppercase;
+			letter-spacing: 0.07em;
+			color: var(--muted);
+			margin: 0 0 0.6rem;
+		}
+		h3.headline {
+			font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+			margin: 0 0 1rem;
+			letter-spacing: -0.015em;
+			line-height: 1.25;
+		}
+		p, ul { margin: 0 0 1rem; max-width: 72ch; }
+		ul { padding-left: 1.15rem; }
+		li { margin: 0.35rem 0; }
+		.placeholder {
+			background: linear-gradient(180deg, #faf5ff, #fff);
+			border: 1px dashed #d8b4fe;
+			border-radius: var(--radius);
+			padding: 1rem 1rem;
+			color: #6b21a8;
+			font-size: 0.92rem;
+			margin: 1rem 0 0;
+			max-width: 72ch;
+		}
+		.two-col {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+			gap: 1rem;
+			margin-top: 1rem;
+		}
+		.tile {
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			padding: 1rem;
+			box-shadow: var(--shadow);
+		}
+		.tile h4 { margin: 0 0 0.35rem; font-size: 1rem; }
+		.tile p { margin: 0; color: var(--muted); font-size: 0.95rem; max-width: none; }
+		.links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+			margin-top: 0.75rem;
+		}
+		.links a {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.35rem;
+			text-decoration: none;
+			font-size: 0.88rem;
+			font-weight: 650;
+			padding: 0.45rem 0.65rem;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			background: #fff;
+		}
+		.links a:hover { border-color: #d1d5db; background: #f9fafb; }
+		@media (max-width: 899px) {
+			.toc { position: relative; top: auto; }
+		}
+	</style>
+</head>
+<body id="top">
+	<header>
+		<div class="header-inner">
+			<a href="/">← Home</a>
+			<span class="badge">Penny · draft</span>
+		</div>
+	</header>
+
+	<div class="layout">
+		<aside class="toc" aria-label="On this page">
+			<h2>On this page</h2>
+			<ul>
+				<li><a href="#overview">Overview</a></li>
+				<li><a href="#problem">Problem</a></li>
+				<li><a href="#research">Research</a></li>
+				<li><a href="#persona">Persona</a></li>
+				<li><a href="#market">Market scan</a></li>
+				<li><a href="#ideation">Ideation</a></li>
+				<li><a href="#concept">Concept</a></li>
+				<li><a href="#prototype">Prototype</a></li>
+				<li><a href="#testing">Testing</a></li>
+				<li><a href="#system">Design system</a></li>
+				<li><a href="#solution">Solution</a></li>
+				<li><a href="#next">Next steps</a></li>
+				<li><a href="#reflection">Reflection</a></li>
+			</ul>
+		</aside>
+
+		<main>
+			<div class="hero">
+				<h1>Penny — Product concept for creative habit-building & peer feedback</h1>
+				<p class="hero-sub">
+					Long-form case study scaffold: swap every paragraph with your own narrative, metrics, and visuals.
+					Structure is loosely modeled after a reference portfolio layout you liked — rewrite all copy in your voice before publishing publicly.
+				</p>
+
+				<dl class="meta-grid">
+					<div class="meta">
+						<dt>Team</dt>
+						<dd>Solo designer (edit)</dd>
+					</div>
+					<div class="meta">
+						<dt>Role</dt>
+						<dd>Product / UX / UI (edit)</dd>
+					</div>
+					<div class="meta">
+						<dt>Timeline</dt>
+						<dd>Aug – Dec 2024 · 4 months (edit)</dd>
+					</div>
+					<div class="meta">
+						<dt>Focus</dt>
+						<dd>Habit loops · community · critique</dd>
+					</div>
+				</dl>
+
+				<p class="notice">
+					<strong>Important:</strong> Do not paste someone else’s portfolio text verbatim.
+					Use this page as an outline; replace research quotes, insights, and visuals with your originals (or obtain explicit permission + credit).
+					Inspiration reference you mentioned: <a href="https://www.yangreyna.com/artland">yangreyna.com/artland</a>.
+				</p>
+			</div>
+
+			<section id="overview">
+				<h2 class="section-title">Overview</h2>
+				<h3 class="headline">Help hobby artists stay consistent — without feeling alone</h3>
+				<p>
+					Penny is a placeholder concept for a lightweight mobile experience built around short creative prompts,
+					small accountability groups, and structured peer feedback. Replace this paragraph with your real problem statement,
+					constraints, and what shipped vs. exploratory.
+				</p>
+				<div class="two-col">
+					<div class="tile">
+						<h4>Daily prompts</h4>
+						<p>Reduce “blank page” friction with bite-sized creative missions users can finish in one sitting.</p>
+					</div>
+					<div class="tile">
+						<h4>Feedback exchange</h4>
+						<p>Pair submissions with lightweight critique templates so feedback feels safe, fast, and actionable.</p>
+					</div>
+				</div>
+				<div class="placeholder">
+					Drop in hero imagery / prototype embed here (Figma, MP4, or static PNG sequence).
+				</div>
+			</section>
+
+			<section id="problem">
+				<h2 class="section-title">Problem</h2>
+				<h3 class="headline">Practicing consistently is hard when motivation dips and feedback is scarce</h3>
+				<p>
+					Summarize what you learned from interviews: pain points, frequency, severity, and quotes (paraphrased with permission).
+					Add a “why now” if relevant (tooling shift, audience behavior, platform constraints).
+				</p>
+				<ul>
+					<li><strong>Friction:</strong> starting is emotionally costly; routines break easily.</li>
+					<li><strong>Isolation:</strong> solo practice lacks accountability and timely critique.</li>
+					<li><strong>Time:</strong> busy schedules need sessions that feel completable in minutes, not hours.</li>
+				</ul>
+			</section>
+
+			<section id="research">
+				<h2 class="section-title">Research</h2>
+				<h3 class="headline">Turn messy conversations into crisp insights</h3>
+				<p>
+					Describe your research plan (n=?, screening criteria, methods). Replace with your synthesis:
+					affinity mapping themes, severity ranking, and “surprising” findings.
+				</p>
+				<div class="two-col">
+					<div class="tile">
+						<h4>Insight A</h4>
+						<p>Placeholder — what consistent blocker showed up across participants?</p>
+					</div>
+					<div class="tile">
+						<h4>Insight B</h4>
+						<p>Placeholder — what social dynamics matter (trust, reciprocity, anonymity)?</p>
+					</div>
+					<div class="tile">
+						<h4>Insight C</h4>
+						<p>Placeholder — what motivates return visits (streaks, rooms, mentors)?</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="persona">
+				<h2 class="section-title">Persona</h2>
+				<h3 class="headline">One primary persona keeps decisions grounded</h3>
+				<p>
+					Introduce your protagonist (goals, contexts, constraints). Add a journey map section later if you want —
+					but keep claims tied to evidence from research.
+				</p>
+				<div class="placeholder">
+					Embed persona one-pager image / FigJam snapshot here.
+				</div>
+			</section>
+
+			<section id="market">
+				<h2 class="section-title">Market scan</h2>
+				<h3 class="headline">Map alternatives — then carve a wedge</h3>
+				<p>
+					List competitor categories (not necessarily apps — communities, classes, prompts newsletters).
+					Highlight gaps: onboarding, moderation, prompt quality, critique quality, async workflows, etc.
+				</p>
+				<div class="placeholder">
+					Competitive matrix screenshot placeholder (features × differentiation).
+				</div>
+			</section>
+
+			<section id="ideation">
+				<h2 class="section-title">Ideation</h2>
+				<h3 class="headline">Explore multiple lenses — converge with rubrics</h3>
+				<p>
+					Briefly explain ideation methods you used and how you prioritized (impact × feasibility × differentiation).
+					If you have workshop artifacts, link them — ideally your own files, not copied PDFs.
+				</p>
+				<div class="links" aria-label="Artifact links (replace with your assets)">
+					<a href="#">Workshop notes (PDF)</a>
+					<a href="#">Mind map</a>
+					<a href="#">Prioritization sheet</a>
+				</div>
+			</section>
+
+			<section id="concept">
+				<h2 class="section-title">Concept</h2>
+				<h3 class="headline">The north star: small commitments + mutual growth</h3>
+				<p>
+					Write your product thesis in one tight paragraph. Then list the MVP pillars (3–5 bullets max).
+				</p>
+				<ul>
+					<li><strong>Pillar 1:</strong> onboarding that sets an achievable cadence.</li>
+					<li><strong>Pillar 2:</strong> prompts that teach technique, not just topics.</li>
+					<li><strong>Pillar 3:</strong> feedback norms (templates, tone, reciprocity cues).</li>
+				</ul>
+			</section>
+
+			<section id="prototype">
+				<h2 class="section-title">Prototype</h2>
+				<h3 class="headline">Start with critical journeys — mid-fi before polish</h3>
+				<p>
+					Document the core flows you prototyped (join/create group → receive prompt → submit → give feedback → see progress).
+					Add fidelity progression: sketches → wireframes → clickable prototype.
+				</p>
+				<div class="placeholder">
+					Embed prototype (iframe) or link out to Figma prototype — replace this box.
+				</div>
+			</section>
+
+			<section id="testing">
+				<h2 class="section-title">Testing</h2>
+				<h3 class="headline">Validate usability and motivation — iterate quickly</h3>
+				<p>
+					Summarize sessions: tasks, success metrics, major usability breaks, and what you changed on each pass.
+				</p>
+				<ul>
+					<li><strong>Iteration 1:</strong> placeholder finding → placeholder fix.</li>
+					<li><strong>Iteration 2:</strong> placeholder finding → placeholder fix.</li>
+				</ul>
+			</section>
+
+			<section id="system">
+				<h2 class="section-title">Design system</h2>
+				<h3 class="headline">Establish tokens + components before visual storytelling</h3>
+				<p>
+					Show typography, color, spacing, components (buttons, cards, chips), and states you designed for real usage scenarios.
+				</p>
+				<div class="placeholder">
+					Design system collage / component grid placeholder.
+				</div>
+			</section>
+
+			<section id="solution">
+				<h2 class="section-title">Solution</h2>
+				<h3 class="headline">Highlights — what the experience feels like end-to-end</h3>
+				<p>
+					This section should mirror your strongest storytelling beats (screen titles + captions).
+					Use progressive disclosure: one headline per beat, then supporting caption + image.
+				</p>
+				<div class="two-col">
+					<div class="tile">
+						<h4>Beat 1 — Join a streak</h4>
+						<p>Caption placeholder.</p>
+					</div>
+					<div class="tile">
+						<h4>Beat 2 — Submit work</h4>
+						<p>Caption placeholder.</p>
+					</div>
+					<div class="tile">
+						<h4>Beat 3 — Give structured feedback</h4>
+						<p>Caption placeholder.</p>
+					</div>
+					<div class="tile">
+						<h4>Beat 4 — Progress over time</h4>
+						<p>Caption placeholder.</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="next">
+				<h2 class="section-title">Next steps</h2>
+				<h3 class="headline">What you’d validate next if you had another sprint</h3>
+				<ul>
+					<li>High-fi usability pass with broader participants.</li>
+					<li>Retention experiments (notifications, streak rules, social proof).</li>
+					<li>Trust & safety: reporting, boundaries, critique quality moderation.</li>
+				</ul>
+			</section>
+
+			<section id="reflection">
+				<h2 class="section-title">Reflection</h2>
+				<h3 class="headline">What you learned — technically and personally</h3>
+				<p>
+					Keep this authentic: tradeoffs you regret, skills you leveled up, and how you’d approach version two.
+				</p>
+				<p style="color:var(--muted);font-size:0.95rem;max-width:72ch;">
+					Footer note: case study outline inspired by the structure of
+					<a href="https://www.yangreyna.com/artland">this reference page</a>.
+					Replace all placeholder copy before publishing; obtain rights for any third-party assets you include.
+				</p>
+			</section>
+		</main>
+	</div>
+</body>
+</html>
