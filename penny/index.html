@@ -197,11 +197,23 @@
 			flex-direction:column;
 			align-items:center;
 			gap:clamp(56px,9vw,79px);
+			background:#fdf8f6;
 		}
 		.penny-vis .dd-caption{align-self:stretch;max-width:722px}
 		/* Figma 2:1698 — structured HTML (no single full-frame image) */
+		/* Full-bleed background: .content max-width would clip gradient on wide viewports */
+		.content.penny-vis,
+		.content.penny-solution,
+		.content.penny-ut,
+		.content[aria-label="Penny case study"]{
+			max-width:none;
+			width:100%;
+		}
+		.content[aria-label="Penny case study"]{
+			background:#fdf8f6;
+		}
 		.penny-solution{
-			background:linear-gradient(180deg,#faf6e8 0%,#fdf8f6 100%);
+			background:#fdf8f6;
 			display:flex;
 			flex-direction:column;
 			align-items:center;
@@ -362,8 +374,8 @@
 		.ut-reflect-body{display:flex;flex-direction:column;gap:clamp(14px,2.5vw,18px)}
 		.ut-reflect-body p{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.85;color:#676565}
 		.ut-reflect-body p.ut-reflect-highlight{color:#f76b9b;font-weight:500}
-		.ut-footer{width:min(var(--content-max),100%);margin:0 auto;padding:clamp(32px,6vw,48px) var(--pad-x) clamp(28px,5vw,40px);border-top:1px solid var(--border)}
-		.ut-footer p{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-size:clamp(17px,2.2vw,20px);letter-spacing:0.04em;line-height:1.35;color:#000;text-align:center}
+		.ut-footer{width:100%;box-sizing:border-box;margin:0 auto;padding:clamp(32px,6vw,48px) var(--pad-x) clamp(28px,5vw,40px);border-top:1px solid var(--border);background:linear-gradient(180deg,#fdf8f6 0%,#faf6e8 100%)}
+		.ut-footer p{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-size:clamp(17px,2.2vw,20px);letter-spacing:0.04em;line-height:1.35;color:#000;text-align:left}
 		.section{
 			display:grid;
 			grid-template-columns:minmax(0,340px) minmax(0,1fr);
