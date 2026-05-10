@@ -8,11 +8,11 @@
 	<meta name="description" content="Penny — case study">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,500&family=DM+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,500&family=DM+Sans:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500;600&family=Mulish:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 	<style>
 		:root{
 			--content-max:1200px;
-			--pad-x:clamp(16px,4vw,48px);
+			--pad-x:clamp(16px,2.5vw,32px);
 			--ink:#0c4524;
 			--heroBg:#f8b2bd;
 			--chipBg:#fef1f3;
@@ -191,6 +191,179 @@
 			margin:0 auto;
 			padding:clamp(48px,8vw,72px) var(--pad-x) clamp(72px,12vw,120px);
 		}
+		/* Figma 75:684 — flows, sketches, prototypes (below design directions) */
+		.penny-vis{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			gap:clamp(56px,9vw,79px);
+		}
+		.penny-vis .dd-caption{align-self:stretch;max-width:722px}
+		/* Figma 2:1698 — structured HTML (no single full-frame image) */
+		.penny-solution{
+			background:linear-gradient(180deg,#faf6e8 0%,#fdf8f6 100%);
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+		}
+		.ps-stack{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			gap:clamp(56px,9vw,80px);
+			width:100%;
+			max-width:min(900px,100%);
+			box-sizing:border-box;
+		}
+		.ps-intro{
+			max-width:722px;
+			width:100%;
+			display:flex;
+			flex-direction:column;
+			gap:clamp(16px,3vw,23px);
+			padding-top:12px;
+		}
+		.ps-intro-kicker{
+			margin:0;
+			font-family:"IBM Plex Mono", monospace;
+			font-size:16px;
+			line-height:1.3;
+			color:#6f6f6f;
+		}
+		.ps-intro-title{
+			margin:0;
+			font-family:"DM Sans", system-ui, sans-serif;
+			font-weight:500;
+			font-size:clamp(22px,4vw,28px);
+			line-height:1.3;
+			color:#111827;
+		}
+		.ps-intro-accent{color:#f6598f;font-weight:500}
+		.ps-intro-sub{
+			margin:0;
+			font-family:"DM Sans", system-ui, sans-serif;
+			font-weight:500;
+			font-size:clamp(18px,2.5vw,22px);
+			line-height:1.35;
+			color:#111827;
+		}
+		.ps-nav-strip{
+			margin:0;
+			width:100%;
+			max-width:722px;
+			line-height:0;
+		}
+		.ps-nav-strip img{display:block;width:100%;height:auto;border-radius:8px}
+		.ps-block{
+			width:100%;
+			display:flex;
+			flex-direction:column;
+			gap:clamp(28px,5vw,40px);
+		}
+		.ps-h3{
+			margin:0;
+			font-family:"DM Sans", system-ui, sans-serif;
+			font-weight:700;
+			font-size:clamp(26px,4vw,32px);
+			line-height:1.2;
+			color:#0c4524;
+			max-width:283px;
+		}
+		.ps-flow{
+			display:flex;
+			flex-wrap:wrap;
+			align-items:flex-end;
+			justify-content:center;
+			gap:clamp(12px,2vw,20px);
+			width:100%;
+		}
+		.ps-callout{
+			flex:0 1 213px;
+			min-width:min(213px,100%);
+			display:flex;
+			flex-direction:column;
+			gap:4px;
+			text-align:left;
+		}
+		.ps-callout-label{margin:0;line-height:0;width:100%}
+		.ps-callout-label img{display:block;width:100%;max-width:min(470px,100%);height:auto}
+		.ps-arr{
+			flex:0 0 auto;
+			width:52px;
+			align-self:center;
+			opacity:0.85;
+		}
+		.ps-arr img{display:block;width:100%;height:auto}
+		.ps-cap{
+			margin:0;
+			flex:0 1 auto;
+			line-height:0;
+			max-width:min(371px,92vw);
+		}
+		.ps-cap img{
+			display:block;
+			width:100%;
+			height:auto;
+			border-radius:28px;
+		}
+		.ps-summary{
+			margin:0;
+			width:100%;
+			max-width:840px;
+			font-family:"DM Sans", system-ui, sans-serif;
+			font-weight:500;
+			font-size:clamp(18px,2.5vw,22px);
+			line-height:1.35;
+			color:#f76b9b;
+		}
+		@media (max-width:720px){
+			.ps-flow{flex-direction:column;align-items:stretch}
+			.ps-arr{align-self:flex-start;margin-left:0}
+			.ps-cap{max-width:100%}
+		}
+		/* Figma 83:790 — user testing insights & reflection (HTML/CSS visuals, no PNG) */
+		.penny-ut{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			background:linear-gradient(180deg,#fdf8f6 0%,#faf6e8 100%);
+			border-top:1px solid var(--border);
+		}
+		.penny-ut .ut-stack{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			gap:clamp(56px,9vw,79px);
+			width:100%;
+			max-width:min(900px,100%);
+		}
+		.ut-intro{width:100%;max-width:722px;display:flex;flex-direction:column;gap:clamp(16px,3vw,23px)}
+		.ut-kicker{margin:0;font-family:"DM Mono",monospace;font-size:16px;line-height:1.3;color:#959595}
+		.ut-title{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:clamp(22px,4vw,28px);line-height:1.3;color:#000}
+		.ut-lede{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-weight:400;font-size:16px;line-height:1.3;color:#515050;padding-left:1.4em;border-left:2px solid #f6598f}
+		.ut-insight{width:100%;max-width:722px;display:flex;flex-direction:column;gap:clamp(18px,3vw,24px)}
+		.ut-insight-title{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:26px;line-height:1.3;color:#000}
+		.ut-insight-body{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.3;color:#515050;max-width:708px}
+		.ut-quote{margin:0;padding:clamp(14px,2.5vw,18px) clamp(16px,3vw,22px);background:rgba(254,241,243,0.85);border-left:3px solid #f76b9b;border-radius:0 10px 10px 0;font-family:"DM Sans",system-ui,sans-serif;font-size:15px;line-height:1.45;color:#374151;font-style:italic}
+		.ut-quote cite{display:block;margin-top:8px;font-size:13px;font-style:normal;color:#6b7280}
+		.ut-visual-wrap{width:100%;display:flex;justify-content:center;padding:clamp(8px,2vw,12px) 0}
+		.ut-insight-capture{
+			margin:0;
+			width:100%;
+			max-width:900px;
+			line-height:0;
+			border-radius:clamp(10px,2vw,14px);
+			overflow:hidden;
+		}
+		.ut-insight-capture img{display:block;width:100%;height:auto}
+		.ut-closing{margin:0;width:100%;max-width:900px;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:clamp(18px,2.5vw,22px);line-height:1.35;color:#f76b9b}
+		.ut-reflection{width:100%;max-width:722px;display:flex;flex-direction:column;gap:clamp(18px,3vw,23px);padding-top:8px}
+		.ut-reflect-lead{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:clamp(20px,3.5vw,26px);line-height:1.35;color:#000}
+		.ut-reflect-body{display:flex;flex-direction:column;gap:clamp(14px,2.5vw,18px)}
+		.ut-reflect-body p{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-size:16px;line-height:1.85;color:#676565}
+		.ut-reflect-body p.ut-reflect-highlight{color:#f76b9b;font-weight:500}
+		.ut-footer{width:min(var(--content-max),100%);margin:0 auto;padding:clamp(32px,6vw,48px) var(--pad-x) clamp(28px,5vw,40px);border-top:1px solid var(--border)}
+		.ut-footer p{margin:0;font-family:"DM Sans",system-ui,sans-serif;font-size:clamp(17px,2.2vw,20px);letter-spacing:0.04em;line-height:1.35;color:#000;text-align:center}
 		.section{
 			display:grid;
 			grid-template-columns:minmax(0,340px) minmax(0,1fr);
@@ -935,7 +1108,7 @@
 			padding:clamp(40px,8vw,72px) 0 clamp(48px,8vw,80px);
 		}
 		.penny-methods__inner{
-			max-width:min(960px,100%);
+			max-width:min(1200px,100%);
 			margin:0 auto;
 			padding:0 var(--pad-x);
 			display:flex;
@@ -944,9 +1117,15 @@
 		}
 		.pm-intro,.pm-journey-copy{
 			max-width:722px;
+			width:100%;
+			margin-left:auto;
+			margin-right:auto;
 			display:flex;
 			flex-direction:column;
 			gap:clamp(18px,3vw,23px);
+			text-align:left;
+			align-items:stretch;
+			box-sizing:border-box;
 		}
 		.pm-kicker{
 			margin:0;
@@ -979,60 +1158,50 @@
 			line-height:1.45;
 			color:var(--pm-caption);
 		}
-		.pm-collage{
-			display:flex;
-			flex-direction:column;
-			gap:clamp(28px,5vw,36px);
-		}
-		.pm-card{
+		/* Node 66:1351 — single composite methods visual */
+		.pm-methods-visual{
 			margin:0;
-		}
-		.pm-card-title{
-			margin:0 0 12px;
-			font-family:"IBM Plex Mono", monospace;
-			font-weight:500;
-			font-size:clamp(18px,2.5vw,22px);
-			letter-spacing:0.02em;
-			color:#000;
-		}
-		.pm-card-note{
-			margin:0;
-			font-family:"DM Sans", system-ui, sans-serif;
-			font-size:15px;
-			line-height:1.4;
-			color:var(--pm-caption);
-		}
-		.pm-card-img{
-			border-radius:16px;
-			overflow:hidden;
-			background:#fff;
+			width:100%;
 			line-height:0;
 		}
-		.pm-card-img--soft{border-radius:20px}
-		.pm-card-img img{
+		.pm-methods-visual img{
 			display:block;
 			width:100%;
 			height:auto;
+			object-fit:cover;
 		}
-		.pm-journey-pair{
-			display:grid;
-			grid-template-columns:1fr;
-			gap:clamp(20px,4vw,28px);
-			max-width:100%;
+		.pm-journey-block{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			gap:clamp(48px,7vw,79px);
+			width:100%;
 		}
-		@media (min-width:800px){
-			.pm-journey-pair{
-				grid-template-columns:1fr 1fr;
-				align-items:start;
-			}
+		.pm-journey-stack{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			gap:clamp(48px,7vw,79px);
+			width:100%;
+			max-width:717px;
 		}
 		.pm-journey-fig{
 			margin:0;
+			width:100%;
+			max-width:717px;
+		}
+		.pm-journey-fig--after{
+			max-width:709px;
 		}
 		.pm-journey-fig img{
 			display:block;
 			width:100%;
 			height:auto;
+		}
+		.pm-journey-fig--before img{
+			border-radius:0;
+		}
+		.pm-journey-fig--after img{
 			border-radius:16px;
 		}
 		.pm-banner{
@@ -1064,20 +1233,23 @@
 			margin:0;
 			font-family:"DM Sans", system-ui, sans-serif;
 			font-weight:700;
-			font-size:clamp(18px,2.6vw,22px);
-			line-height:1.35;
+			font-size:22px;
+			line-height:1.3;
 			color:#000;
 		}
 		.pm-banner-body{
 			margin:0;
 			font-family:"DM Sans", system-ui, sans-serif;
 			font-weight:500;
-			font-size:clamp(18px,2.6vw,22px);
-			line-height:1.35;
+			font-size:22px;
+			line-height:1.3;
 			color:#000;
 		}
+		@media (max-width:640px){
+			.pm-banner-strong,.pm-banner-body{font-size:clamp(17px,4.5vw,22px)}
+		}
 
-		/* Figma node 65:1348 — design directions + process (inside .content) */
+		/* Figma node 74:1479 — three design directions + raster compare tiles (inside .content) */
 		.penny-dd{
 			--dd-green:#0c4524;
 			--dd-pink:#f76b9b;
@@ -1127,8 +1299,9 @@
 			line-height:1.2;
 			white-space:nowrap;
 		}
-		.dd-flow-label--green{color:var(--dd-green)}
-		.dd-flow-label--soft{color:var(--dd-soft)}
+		/* Figma 65:1348 flow: outer labels soft pink, middle forest green */
+		.dd-flow-label--pill{color:var(--dd-soft);font-weight:700}
+		.dd-flow-label--mid{color:var(--dd-green);font-weight:700}
 		.dd-flow-arr{
 			height:clamp(48px,12vw,80px);
 			width:auto;
@@ -1190,6 +1363,81 @@
 			gap:clamp(24px,6vw,48px);
 			width:100%;
 		}
+		/* Figma 58:3286 — pillar 01 Before / illustration / Now + caption */
+		.dd-compare--priority{
+			flex-direction:column;
+			align-items:center;
+			gap:30px;
+		}
+		.dd-compare--priority .dd-compare-row{
+			display:flex;
+			flex-wrap:wrap;
+			align-items:flex-end;
+			justify-content:center;
+			gap:clamp(32px,10vw,75px);
+			width:100%;
+		}
+		.dd-compare--priority .dd-footnote{
+			margin:0;
+			max-width:722px;
+			text-align:center;
+			white-space:pre-line;
+		}
+		/* Figma 74:1479 — raster flow bar + phone tiles */
+		.dd-flow-bar{
+			margin:0 auto;
+			width:100%;
+			max-width:722px;
+			line-height:0;
+		}
+		.dd-flow-bar img{
+			display:block;
+			width:100%;
+			height:auto;
+		}
+		.dd-phone-shot{
+			margin:0;
+			width:min(187px,42vw);
+			border-radius:20px;
+			overflow:hidden;
+			background:#fff;
+			line-height:0;
+		}
+		.dd-phone-shot img{
+			display:block;
+			width:100%;
+			height:auto;
+			vertical-align:top;
+		}
+		.dd-phone--now-rank{
+			min-height:243px;
+			justify-content:flex-start;
+			padding-top:12px;
+		}
+		.dd-rank-head--priority{
+			justify-content:center;
+			gap:34px;
+			width:100%;
+			max-width:158px;
+			margin-bottom:16px;
+		}
+		.dd-rank-list--priority{
+			max-width:143px;
+			width:143px;
+			gap:10px;
+			position:relative;
+			left:-6px;
+		}
+		.dd-rank-list--priority li{
+			width:100%;
+			box-sizing:border-box;
+			min-height:24px;
+			padding:2px 10px;
+			font-size:14px;
+			line-height:19px;
+		}
+		.dd-phone--before .dd-care{font-size:15px}
+		.dd-emoji--figma{font-size:32px;line-height:1.25}
 		.dd-col{
 			display:flex;
 			flex-direction:column;
@@ -1228,7 +1476,6 @@
 			width:191px;
 			height:191px;
 			border-radius:20px;
-			border:2px solid var(--dd-green);
 			overflow:hidden;
 			flex-shrink:0;
 			line-height:0;
@@ -1286,9 +1533,23 @@
 			text-align:left;
 		}
 		.dd-benefits li{
+			display:flex;
+			align-items:center;
+			gap:9px;
 			background:var(--dd-soft);
 			border-radius:10px;
-			padding:10px 12px;
+			padding:8px 10px;
+			font-size:10px;
+			line-height:1.25;
+			font-weight:700;
+			font-family:"Mulish", "DM Sans", system-ui, sans-serif;
+			color:#fff;
+		}
+		.dd-benefits li img{
+			flex-shrink:0;
+			width:18px;
+			height:18px;
+			object-fit:contain;
 		}
 		.dd-footnote{
 			margin:0;
@@ -1325,6 +1586,13 @@
 			width:100%;
 			height:auto;
 			border-radius:12px;
+		}
+		.dd-figure--crop{
+			overflow:hidden;
+			border-radius:12px;
+		}
+		.dd-figure--crop img{
+			border-radius:0;
 		}
 		.dd-figure--tight img{border-radius:0}
 		.dd-strip{
@@ -1559,53 +1827,27 @@
 					<p class="pm-muted">To move from research findings to product direction, we used five methods:</p>
 				</div>
 
-				<div class="pm-collage">
-					<figure class="pm-card">
-						<figcaption class="pm-card-title">Mindmap</figcaption>
-						<div class="pm-card-img pm-card-img--soft">
-							<img src="assets/figma/methods-mindmap.png" width="3915" height="4096" alt="Mindmap connecting research themes and opportunities" loading="lazy" decoding="async">
-						</div>
-					</figure>
-					<figure class="pm-card">
-						<figcaption class="pm-card-title">Affinity Map</figcaption>
-						<div class="pm-card-img">
-							<img src="assets/figma/methods-affinity.png" width="4096" height="2715" alt="Affinity clusters from interviews and notes" loading="lazy" decoding="async">
-						</div>
-					</figure>
-					<figure class="pm-card">
-						<figcaption class="pm-card-title">SCAMPER</figcaption>
-						<p class="pm-card-note">Structured prompts to stretch concepts beyond first ideas.</p>
-					</figure>
-					<figure class="pm-card">
-						<figcaption class="pm-card-title">Competitive Research</figcaption>
-						<div class="pm-card-img">
-							<img src="assets/figma/methods-competitive.png" width="4096" height="1358" alt="Comparable patterns across competitor budgeting apps" loading="lazy" decoding="async">
-						</div>
-					</figure>
-					<figure class="pm-card">
-						<figcaption class="pm-card-title">SWOT Analysis</figcaption>
-						<div class="pm-card-img">
-							<img src="assets/figma/methods-swot.png" width="4096" height="1012" alt="SWOT summaries for key competitors" loading="lazy" decoding="async">
-						</div>
-					</figure>
+				<figure class="pm-methods-visual" data-node-id="72:1428">
+					<img src="assets/figma/methods-collage.png" width="2400" height="1276" alt="Mindmap, affinity map, SCAMPER, competitive research, and SWOT analysis used to shape Penny" loading="lazy" decoding="async">
+				</figure>
+
+				<div class="pm-journey-block">
+					<div class="pm-journey-copy">
+						<p class="pm-kicker">Why We Mapped the Spending Journey</p>
+						<p class="pm-title">We mapped the <span class="pm-accent">spending journey</span> to understand where good intentions turn into regret.</p>
+						<p class="pm-body">It showed us that users need support before they spend, not only after their balance drops.</p>
+					</div>
+					<div class="pm-journey-stack">
+						<figure class="pm-journey-fig pm-journey-fig--before" data-node-id="44:1660">
+							<img src="assets/figma/journey-before.png" width="3439" height="1823" alt="Before: current spending journey—reflection spikes after the balance drops" loading="lazy" decoding="async">
+						</figure>
+						<figure class="pm-journey-fig pm-journey-fig--after" data-node-id="44:1635">
+							<img src="assets/figma/journey-after.png" width="3372" height="1808" alt="After: proposed journey with Penny—mindful moments across priorities, consistency, and goals" loading="lazy" decoding="async">
+						</figure>
+					</div>
 				</div>
 
-				<div class="pm-journey-copy">
-					<p class="pm-kicker">Why We Mapped the Spending Journey</p>
-					<p class="pm-title">We mapped the <span class="pm-accent">spending journey</span> to understand where good intentions turn into regret.</p>
-					<p class="pm-body">It showed us that users need support before they spend, not only after their balance drops.</p>
-				</div>
-
-				<div class="pm-journey-pair">
-					<figure class="pm-journey-fig">
-						<img src="assets/figma/journey-before.png" width="3439" height="1823" alt="Before: reflection often happens only after the balance drops" loading="lazy" decoding="async">
-					</figure>
-					<figure class="pm-journey-fig">
-						<img src="assets/figma/journey-after.png" width="3372" height="1808" alt="After: mindful moments across planning, spending, and goals with Penny" loading="lazy" decoding="async">
-					</figure>
-				</div>
-
-				<div class="pm-banner">
+				<div class="pm-banner" data-node-id="57:286">
 					<div class="pm-banner__inner">
 						<p class="pm-banner-kicker">With this key moment identified, we translated the journey gap into three design directions for Penny</p>
 						<p class="pm-banner-strong">From Journey to Design Direction</p>
@@ -1616,145 +1858,346 @@
 		</section>
 
 		<div class="content" aria-label="Penny case study">
-			<section class="penny-dd" id="design-process" data-figma-node="65:1348" aria-label="Three design directions and process">
-				<div class="dd-intro">
+			<section class="penny-dd" id="design-process" data-figma-node="74:1479" aria-label="Three design directions">
+				<div class="dd-intro" data-node-id="2:1596">
 					<p class="dd-kicker">Three Design Directions</p>
 					<p class="dd-title">These directions became the foundation of Penny’s <span class="dd-accent">core experience</span>.</p>
 				</div>
 
-				<div class="dd-flow-strip" aria-hidden="true">
-					<p class="dd-flow-label dd-flow-label--soft">Know my priority</p>
-					<img class="dd-flow-arr" src="assets/figma/dd-arrow-3.svg" alt="" width="81" height="299">
-					<p class="dd-flow-label dd-flow-label--green">Be consistent</p>
-					<img class="dd-flow-arr" src="assets/figma/dd-arrow-2.svg" alt="" width="81" height="271">
-					<p class="dd-flow-label dd-flow-label--soft">Achieve my goals</p>
-				</div>
+				<figure class="dd-flow-bar" data-node-id="74:1475">
+					<img src="assets/figma/dd-flow-bar.png" width="1444" height="164" alt="" loading="lazy" decoding="async">
+				</figure>
 
 				<article class="dd-pillar">
-					<div class="dd-card">
+					<div class="dd-card" data-node-id="58:3269">
 						<h3 class="dd-card-h">01 Know My Priority</h3>
 						<p class="dd-card-p">The user wants to save for a bigger goal, but also wants to enjoy everyday life.</p>
 						<p class="dd-card-dgl">Design goal:</p>
 						<p class="dd-card-dgv dd-card-dgv--accent">Help users understand what they value before they start budgeting.</p>
 					</div>
-					<div class="dd-compare">
-						<div class="dd-col">
-							<p class="dd-phase">Before</p>
-							<div class="dd-phone dd-phone--before">
-								<p class="dd-care">I care about...</p>
-								<p class="dd-emoji">☕️ 🍵 🧋 🍰<br>🍔<br>🛒 🛍️ 🎁 📦<br>🚕 ⛽️ 🚇<br>🚌 ✈️<br>🎬<br>🎤 🎧 🎮</p>
+					<div class="dd-compare dd-compare--priority" data-node-id="58:3286">
+						<div class="dd-compare-row" data-node-id="58:3073">
+							<div class="dd-col">
+								<p class="dd-phase">Before</p>
+								<figure class="dd-phone-shot" data-node-id="74:1443">
+									<img src="assets/figma/dd-pillar1-before.png" width="374" height="488" alt="Before: many spending categories without a clear order of importance" loading="lazy" decoding="async">
+								</figure>
+							</div>
+							<div class="dd-col dd-col--illus">
+								<div class="dd-illus" data-node-id="58:360">
+									<img src="assets/figma/dd-pillar-illustration-01.png" width="191" height="191" alt="Illustration: clarifying priorities before budgeting" loading="lazy" decoding="async">
+								</div>
+							</div>
+							<div class="dd-col">
+								<p class="dd-phase">Now</p>
+								<figure class="dd-phone-shot" data-node-id="74:1446">
+									<img src="assets/figma/dd-pillar1-now.png" width="374" height="486" alt="Now: Penny ranks what matters most before budgeting" loading="lazy" decoding="async">
+								</figure>
 							</div>
 						</div>
-						<div class="dd-col dd-col--illus">
-							<div class="dd-illus"><img src="assets/figma/dd-pillar-illustration-01.png" width="191" height="191" alt="Illustration: clarifying spending priorities" loading="lazy"></div>
-						</div>
-						<div class="dd-col">
-							<p class="dd-phase">Now</p>
-							<div class="dd-phone">
-								<div class="dd-rank-head"><span>Priority</span><span>Spending</span></div>
-								<ul class="dd-rank-list">
-									<li><span>#1</span><span aria-hidden="true">🏠</span></li>
-									<li><span>#2</span><span aria-hidden="true">💊</span></li>
-									<li><span>#3</span><span aria-hidden="true">🛍️</span></li>
-									<li><span>#4</span><span aria-hidden="true">🍜</span></li>
-									<li><span>#5</span><span aria-hidden="true">🚇</span></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<p class="dd-footnote">Before setting a budget, Penny helps the user compare what matters more right now.
+						<p class="dd-footnote" data-node-id="58:3285">Before setting a budget, Penny helps the user compare what matters more right now.
 Instead of treating every category equally, the user can define their own priorities.</p>
+					</div>
 				</article>
 
 				<article class="dd-pillar">
-					<div class="dd-card">
+					<div class="dd-card" data-node-id="58:3351">
 						<h3 class="dd-card-h dd-card-h--bold">02 Be Consistent</h3>
 						<p class="dd-card-p">During the week, the user faces small spending temptations like coffee, food delivery, or going out.</p>
 						<p class="dd-card-dgl">Design goal:</p>
 						<p class="dd-card-dgv">Help users stay aware in daily moments before small purchases add up.</p>
 					</div>
-					<div class="dd-compare">
-						<div class="dd-col">
-							<p class="dd-phase">Before</p>
-							<div class="dd-phone"><p class="dd-phone-word">Overwhelmed</p></div>
+					<div class="dd-compare dd-compare--priority" data-node-id="58:3363">
+						<div class="dd-compare-row" data-node-id="58:3364">
+							<div class="dd-col">
+								<p class="dd-phase">Before</p>
+								<figure class="dd-phone-shot" data-node-id="74:1449">
+									<img src="assets/figma/dd-pillar2-before.png" width="374" height="488" alt="Before: overwhelming sticky notes and scattered spending worries" loading="lazy" decoding="async">
+								</figure>
+							</div>
+							<div class="dd-col dd-col--illus">
+								<div class="dd-illus" data-node-id="58:3369">
+									<img src="assets/figma/dd-pillar-illustration-02.png" width="191" height="191" alt="Illustration: pacing everyday spending with structure" loading="lazy" decoding="async">
+								</div>
+							</div>
+							<div class="dd-col">
+								<p class="dd-phase">Now</p>
+								<figure class="dd-phone-shot" data-node-id="74:1452">
+									<img src="assets/figma/dd-pillar2-now.png" width="374" height="486" alt="Now: spending tickets keep daily choices structured" loading="lazy" decoding="async">
+								</figure>
+							</div>
 						</div>
-						<div class="dd-col"><div class="dd-illus"><img src="assets/figma/dd-pillar-illustration-02.png" width="191" height="191" alt="Illustration: pacing everyday spending" loading="lazy"></div></div>
-						<div class="dd-col">
-							<p class="dd-phase">Now</p>
-							<div class="dd-phone"><p class="dd-phone-word">Structured</p></div>
-						</div>
-					</div>
-					<p class="dd-footnote">Penny turns the budget into simple spending tickets, like “2 dine-out tickets left.”
+						<p class="dd-footnote" data-node-id="58:3394">Penny turns the budget into simple spending tickets, like “2 dine-out tickets left.”
 This helps the user pace spending without feeling like they have to stop enjoying life.</p>
+					</div>
 				</article>
 
 				<article class="dd-pillar">
-					<div class="dd-card">
+					<div class="dd-card" data-node-id="58:3481">
 						<h3 class="dd-card-h dd-card-h--bold">03 Achieve My Goals</h3>
 						<p class="dd-card-p">At the end of the week, Harper sees that skipping one unnecessary dinner moved her closer to her trip goal.</p>
 						<p class="dd-card-dgl">Design goal:</p>
 						<p class="dd-card-dgv">Help users connect everyday decisions to long-term progress.</p>
 					</div>
-					<div class="dd-compare">
-						<div class="dd-col">
-							<p class="dd-phase">Before</p>
-							<div class="dd-phone"><p class="dd-phone-word">Stressful</p></div>
-						</div>
-						<div class="dd-col"><div class="dd-illus"><img src="assets/figma/dd-pillar-illustration-03.png" width="191" height="191" alt="Illustration: linking spending to goals" loading="lazy"></div></div>
-						<div class="dd-col">
-							<p class="dd-phase">Now</p>
-							<div class="dd-phone">
-								<p class="dd-phone-word dd-phone-word--mb">Mindful</p>
-								<ul class="dd-benefits">
-									<li>Turns money into clear choices</li>
-									<li>Supports decisions before spending</li>
-									<li>Links spending to personal goals</li>
-									<li>Fits into daily spending moments</li>
-								</ul>
+					<div class="dd-compare dd-compare--priority" data-node-id="58:3493">
+						<div class="dd-compare-row" data-node-id="58:3494">
+							<div class="dd-col">
+								<p class="dd-phase">Before</p>
+								<figure class="dd-phone-shot" data-node-id="74:1455">
+									<img src="assets/figma/dd-pillar3-before.png" width="374" height="488" alt="Before: stressful charts and noise without emotional clarity" loading="lazy" decoding="async">
+								</figure>
+							</div>
+							<div class="dd-col dd-col--illus">
+								<div class="dd-illus" data-node-id="58:3505">
+									<img src="assets/figma/dd-pillar-illustration-03.png" width="191" height="191" alt="Illustration: linking choices to long-term goals" loading="lazy" decoding="async">
+								</div>
+							</div>
+							<div class="dd-col">
+								<p class="dd-phase">Now</p>
+								<figure class="dd-phone-shot" data-node-id="74:1458">
+									<img src="assets/figma/dd-pillar3-now.png" width="374" height="486" alt="Now: Penny surfaces mindful progress toward goals" loading="lazy" decoding="async">
+								</figure>
 							</div>
 						</div>
-					</div>
-					<p class="dd-footnote">Penny shows progress through goal updates, reports, and achievements.
+						<p class="dd-footnote" data-node-id="58:3518">Penny shows progress through goal updates, reports, and achievements.
 Instead of only showing what the user spent, Penny shows what their choices helped protect.</p>
+					</div>
 				</article>
-
-				<div class="dd-visual-lede dd-intro">
-					<p class="dd-kicker">Now we got an idea...</p>
-					<p class="dd-lead-main">Let’s start visualizing!</p>
-					<p class="dd-lead-sub">Turning Penny Into 4 Core MVP Flows</p>
-				</div>
-
-				<figure class="dd-strip"><img src="assets/figma/dd-flow-spacer.png" alt="" width="4096" height="313" loading="lazy"></figure>
-
-				<figure class="dd-figure"><img src="assets/figma/dd-user-flow.png" width="4096" height="3463" alt="User flow across sign up, onboarding, priorities, tracking, and review" loading="lazy"></figure>
-
-				<p class="dd-caption">Brainstorming different designs through sketches</p>
-				<figure class="dd-figure"><img src="assets/figma/dd-sketches.png" width="4096" height="4096" alt="Sketch explorations and sticky-note ideation" loading="lazy"></figure>
-
-				<p class="dd-caption">And finally, turning them into mid-fidelity prototypes</p>
-				<figure class="dd-figure"><img src="assets/figma/dd-prototype-grid.png" width="4096" height="3490" alt="Mid-fidelity Penny screens in a grid" loading="lazy"></figure>
-
-				<div class="dd-style-intro dd-intro">
-					<p class="dd-kicker">Style guide &amp; Design system</p>
-					<p class="dd-title">Building a consistent visual language for Penny</p>
-					<p class="dd-body-line">Before moving into high-fidelity design, we created a style guide and design system to keep Penny’s experience <span class="dd-accent-inline">cohesive, friendly, and easy to scale.</span></p>
-				</div>
-
-				<div class="dd-mood-copy dd-intro">
-					<p class="dd-body-line">Setting the vibe of Penny</p>
-					<p class="dd-pink-line">We explored a visual direction that felt soft, human, and lightly playful, while still keeping the product trustworthy as a finance app.</p>
-				</div>
-
-				<figure class="dd-figure"><img src="assets/figma/dd-moodboard.png" width="2048" height="1088" alt="Mood board for Penny visual direction" loading="lazy"></figure>
-
-				<div class="dd-mood-copy dd-intro">
-					<p class="dd-body-line">From mood to system...</p>
-					<p class="dd-soft-line">After defining the emotional tone, we translated the mood board into a reusable visual system.</p>
-				</div>
-
-				<figure class="dd-figure"><img src="assets/figma/dd-design-system.png" width="4096" height="2248" alt="Design system: type, color, and components for Penny" loading="lazy"></figure>
 			</section>
 		</div>
+
+		<div class="content penny-vis" id="mvp-visualization" data-figma-node="75:684" aria-label="Visualizing Penny MVP flows and prototypes">
+			<div class="dd-visual-lede dd-intro" data-node-id="2:1642">
+				<p class="dd-kicker">Now we got an idea...</p>
+				<p class="dd-lead-main">Let’s start visualizing!</p>
+				<p class="dd-lead-sub">Turning Penny Into 4 Core MVP Flows</p>
+			</div>
+
+			<figure class="dd-figure" data-node-id="74:1440">
+				<img src="assets/figma/dd-vis-user-flow.png" width="1444" height="1492" alt="Four core MVP flows: bank setup, daily challenge, reports, and goals" loading="lazy" decoding="async">
+			</figure>
+
+			<p class="dd-caption">Brainstorming different designs through sketches</p>
+			<figure class="dd-figure dd-figure--crop" data-node-id="61:667">
+				<img src="assets/figma/dd-vis-sketches.png" width="4096" height="4096" alt="Sketch explorations and sticky-note ideation for Penny" loading="lazy" decoding="async">
+			</figure>
+
+			<p class="dd-caption">And finally, turning them into mid-fidelity prototypes!</p>
+			<figure class="dd-figure" data-node-id="2:1660">
+				<img src="assets/figma/dd-vis-prototypes.png" width="4096" height="3490" alt="Mid-fidelity Penny screens: onboarding, daily check, reports, and goals" loading="lazy" decoding="async">
+			</figure>
+		</div>
+
+		<div class="content penny-solution" id="hi-fi-solution" data-figma-node="2:1698" aria-label="Penny high-fidelity solution walkthrough">
+			<div class="ps-stack">
+				<header class="ps-intro" data-node-id="2:1699">
+					<p class="ps-intro-kicker">The solution</p>
+					<p class="ps-intro-title">Introducing <span class="ps-intro-accent">Penny</span> — a more approachable way to connect with your goals &amp; daily spending habits.</p>
+					<p class="ps-intro-sub">Pick a path to explore each pillar.</p>
+				</header>
+
+				<figure class="ps-nav-strip" data-node-id="62:1619">
+					<img src="assets/figma/ps-nav-01.png" width="2308" height="232" alt="Pillar navigation: Know my priority active" loading="lazy" decoding="async">
+				</figure>
+
+				<section class="ps-block" data-node-id="64:920" aria-labelledby="ps-h-onboard">
+					<h3 class="ps-h3" id="ps-h-onboard">Onboarding: Let’s Get Started</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:890">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-callout-welcome-label.png" width="437" height="155" alt="Welcome Screen" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="63:1622"><img src="assets/figma/ps-screen-welcome.png" width="1574" height="1604" alt="Penny welcome screen mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:899">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-callout-category-label.png" width="437" height="251" alt="Spending Category Selection" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="2:1711">Users can select their spending categories, allowing the app to analyze their habits and help them to stay more mindful of their spending</p>
+				</section>
+
+				<section class="ps-block" data-node-id="64:933" aria-labelledby="ps-h-priority">
+					<h3 class="ps-h3" id="ps-h-priority">What Do You Prioritize?</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:941">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-priority-ab.png" width="437" height="155" alt="A/B Priority Choice" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="64:985"><img src="assets/figma/ps-screen-priority-ab.png" width="1534" height="1594" alt="A/B priority choice mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:952">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-values-ranking.png" width="437" height="219" alt="Spending Values Ranking" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="64:955">Users will be presented with a series of &apos;A or B&apos; choices. These help the app to rank users&apos; priorities, and they will have a chance to preview the list before moving to the next step.</p>
+				</section>
+
+				<section class="ps-block" data-node-id="64:957" aria-labelledby="ps-h-ready">
+					<h3 class="ps-h3" id="ps-h-ready">Ready to Begin?</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:965">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-create-account.png" width="437" height="155" alt="Create Account" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="64:995"><img src="assets/figma/ps-screen-create.png" alt="Create account mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:976">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-bank-connection.png" width="437" height="219" alt="Bank Connection" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="64:979">Users create an account and link their bank so Penny can officially start their budgeting journey on Day 1.</p>
+				</section>
+
+				<figure class="ps-nav-strip" data-node-id="64:999">
+					<img src="assets/figma/ps-nav-02.png" alt="Pillar navigation: Be consistent active" loading="lazy" decoding="async">
+				</figure>
+
+				<section class="ps-block" data-node-id="64:1004" aria-labelledby="ps-h-motivated">
+					<h3 class="ps-h3" id="ps-h-motivated">Stay Motivated</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1012">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-day-challenge.png" width="437" height="187" alt="Day Challenge" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="64:1131"><img src="assets/figma/ps-screen-day-challenge.png" alt="Day challenge mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1023">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-profile-overview-motivated.png" width="437" height="219" alt="Profile Overview" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="64:1026">Penny keeps users engaged by turning discipline into visible progress, not pressure.</p>
+				</section>
+
+				<section class="ps-block" data-node-id="64:1027" aria-labelledby="ps-h-consistent">
+					<h3 class="ps-h3" id="ps-h-consistent">Be Consistent</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1035">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-challenge-home.png" width="437" height="219" alt="Challenge Home" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="64:1133"><img src="assets/figma/ps-screen-challenge-home.png" alt="Challenge home mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1044">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-category-detail.png" width="437" height="253" alt="Category Detail" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="64:1047">Penny helps users pace their spending through clear limits, flexible adjustments, and real-time awareness.</p>
+				</section>
+
+				<section class="ps-block" data-node-id="64:1048" aria-labelledby="ps-h-achieve-flow">
+					<h3 class="ps-h3" id="ps-h-achieve-flow">Achieve My Goals</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1057">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-routine-goals.png" width="437" height="187" alt="Routine Goals" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="64:1135"><img src="assets/figma/ps-screen-routine-goals.png" alt="Routine goals mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1068">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-saving-goals.png" width="437" height="219" alt="Saving Goals" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="64:1071">Penny helps users see how everyday spending habits support long-term goals.</p>
+				</section>
+
+				<section class="ps-block" data-node-id="64:1085" aria-labelledby="ps-h-rebalance-1">
+					<h3 class="ps-h3" id="ps-h-rebalance-1">Rebalance With Intention</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1094">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-new-routine-setup.png" width="437" height="187" alt="New Routine Setup" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="64:1137"><img src="assets/figma/ps-screen-rebalance-new.png" alt="New routine setup mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1105">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-rebalance-preview.png" width="437" height="219" alt="Rebalance Preview" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="64:1108">Instead of simply adding more spending, Penny helps users make trade-offs visible before committing.</p>
+				</section>
+
+				<figure class="ps-nav-strip" data-node-id="64:1210">
+					<img src="assets/figma/ps-nav-03.png" alt="Pillar navigation: Achieve my goals active" loading="lazy" decoding="async">
+				</figure>
+
+				<section class="ps-block" data-node-id="64:1140" aria-labelledby="ps-h-reflect">
+					<h3 class="ps-h3" id="ps-h-reflect">Reflect on Spending</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1149">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-monthly-report.png" width="437" height="233" alt="Monthly Report" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="64:1232"><img src="assets/figma/ps-screen-monthly-report.png" alt="Monthly report mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1158">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-spending-alignment.png" width="437" height="219" alt="Spending Alignment" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="64:1161">Instead of only tracking transactions, Penny helps users learn from their spending and use that reflection to make better choices next time.</p>
+				</section>
+
+				<section class="ps-block" data-node-id="64:1163" aria-labelledby="ps-h-rebalance-2">
+					<h3 class="ps-h3" id="ps-h-rebalance-2">Rebalance With Intention</h3>
+					<div class="ps-flow">
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1172">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-profile-overview-reflect.png" width="437" height="219" alt="Profile Overview" loading="lazy" decoding="async"></figure>
+						</div>
+						<figure class="ps-cap" data-node-id="64:1234"><img src="assets/figma/ps-screen-profile-achieve.png" alt="Profile and achievements mockup" loading="lazy" decoding="async"></figure>
+						<div class="ps-callout ps-callout--label-img" data-node-id="64:1181">
+							<figure class="ps-callout-label"><img src="assets/figma/ps-label-achievements-categories.png" width="470" height="263" alt="Achievements &amp; Categories" loading="lazy" decoding="async"></figure>
+						</div>
+					</div>
+					<p class="ps-summary" data-node-id="64:1184">Penny reinforces positive behavior by making growth, consistency, and milestones easy to recognize.</p>
+				</section>
+			</div>
+		</div>
+
+		<div class="content penny-ut" id="user-testing-insights" data-figma-node="83:790" aria-label="User testing insights and reflection">
+			<div class="ut-stack">
+				<header class="ut-intro" data-node-id="72:1435">
+					<p class="ut-kicker" data-node-id="2:1733">User Testing Insight</p>
+					<h2 class="ut-title" data-node-id="2:1735">Improving clarity and motivation through user feedback</h2>
+					<p class="ut-lede" data-node-id="2:1739">We tested our high-fidelity prototype to understand whether users could clearly understand Penny’s core features and whether the experience felt supportive.</p>
+				</header>
+
+				<article class="ut-insight" data-node-id="65:1236" aria-labelledby="ut-insight-1-title">
+					<p class="ut-kicker" data-node-id="65:1238">Insight 01</p>
+					<h3 class="ut-insight-title" id="ut-insight-1-title" data-node-id="65:1240">Clarify Split, Merge, and Trade</h3>
+					<p class="ut-insight-body" data-node-id="65:1270">Users liked having flexible control, but the meaning of each action needed clearer explanation.</p>
+					<div class="ut-visual-wrap" data-node-id="65:1245">
+						<figure class="ut-insight-capture" data-figma-node="65:1245">
+							<img src="assets/figma/ut-insight-split-merge.png" width="906" height="706" alt="Penny Dine Out category detail with Split, Merge, and Trade; participant quote on unclear purpose for first-time users" loading="lazy" decoding="async">
+						</figure>
+					</div>
+					<blockquote class="ut-quote">To be honest, I am not sure what the purpose of these features is as a first-time user.<cite>Participant feedback</cite></blockquote>
+				</article>
+
+				<article class="ut-insight" data-node-id="65:1254" aria-labelledby="ut-insight-2-title">
+					<p class="ut-kicker" data-node-id="65:1275">Insight 02</p>
+					<h3 class="ut-insight-title" id="ut-insight-2-title" data-node-id="65:1277">Make achievements more meaningful</h3>
+					<p class="ut-insight-body" data-node-id="65:1278">Users understood the reward system, but wanted badges and numbers to feel more specific and motivating.</p>
+					<div class="ut-visual-wrap" data-node-id="65:1261">
+						<figure class="ut-insight-capture">
+							<img src="assets/figma/ut-insight-achievements.png" width="920" height="706" alt="Achievement System Overview with tier badges; participant quote on wanting more interesting badges" loading="lazy" decoding="async">
+						</figure>
+					</div>
+					<blockquote class="ut-quote">I like the achievement system, but I think it can be more interesting if the badges are more interesting.<cite>Participant feedback</cite></blockquote>
+				</article>
+
+				<article class="ut-insight" data-node-id="65:1304" aria-labelledby="ut-insight-3-title">
+					<p class="ut-kicker" data-node-id="65:1308">Insight 03</p>
+					<h3 class="ut-insight-title" id="ut-insight-3-title" data-node-id="65:1310">Explain Spending Alignment better</h3>
+					<p class="ut-insight-body" data-node-id="65:1311">Users were interested in alignment data, but needed clearer labels, timeframe, and context to understand what the numbers meant.</p>
+					<div class="ut-visual-wrap" data-node-id="65:1312">
+						<figure class="ut-insight-capture">
+							<img src="assets/figma/ut-insight-spending-alignment.png" width="934" height="706" alt="Spending Alignment screen with piggy-bank breakdown and categories; participant quote on unclear timeframe for numbers" loading="lazy" decoding="async">
+						</figure>
+					</div>
+					<blockquote class="ut-quote">I am not sure if the data is showing for this month or for this week and the meaning of the numbers.<cite>Participant feedback</cite></blockquote>
+				</article>
+
+				<p class="ut-closing" data-node-id="65:1318">User feedback helped us refine Penny from a visually complete prototype into a clearer and more usable financial support system.</p>
+
+				<section class="ut-reflection" data-node-id="65:1323" aria-labelledby="ut-reflect-heading">
+					<p class="ut-kicker" data-node-id="65:1325">Reflecting on what I learned</p>
+					<h2 class="ut-reflect-lead" id="ut-reflect-heading" data-node-id="65:1327">Testing Penny showed where polish meets comprehension—and why motivation matters as much as clarity.</h2>
+					<div class="ut-reflect-body">
+						<p data-node-id="65:1328">Penny helped us understand that budgeting is not only a numbers problem. It is also about timing, emotion, and motivation.</p>
+						<p data-node-id="65:1334">Through research and testing, we learned that users do not need more pressure around money. They need clearer support at the moment of decision.</p>
+						<p data-node-id="65:1341">If we continue developing Penny, our next focus would be improving feature clarity, testing long-term engagement, and making the experience feel even more supportive, personalized, and easy to keep using.</p>
+						<p class="ut-reflect-highlight" data-node-id="65:1343">Ultimately, Penny reframes budgeting from “tracking what went wrong” to helping users make more mindful choices before spending happens.</p>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<footer class="ut-footer" data-node-id="2:1764">
+			<p data-node-id="2:1778">Copyright © 2026 Cherry Li. All rights reserved.</p>
+		</footer>
 	</main>
 	<script>
 (function(){
