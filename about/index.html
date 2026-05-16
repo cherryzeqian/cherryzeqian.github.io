@@ -49,6 +49,7 @@
 			top: 0;
 			z-index: 20;
 			background: #fff;
+			width: 100%;
 		}
 
 		.about-header__inner {
@@ -56,8 +57,11 @@
 			align-items: center;
 			justify-content: space-between;
 			gap: 24px;
-			padding: 31px 49px 31px 40px;
-			max-width: 100%;
+			width: 100%;
+			max-width: none;
+			margin: 0;
+			padding: 31px clamp(16px, 4.2vw, 49px) 31px clamp(16px, 3.5vw, 40px);
+			box-sizing: border-box;
 		}
 
 		.about-header__brand {
