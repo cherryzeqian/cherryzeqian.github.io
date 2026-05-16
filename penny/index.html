@@ -742,17 +742,34 @@
 			max-width:none;
 			pointer-events:none;
 		}
-		.pfs-phone-slot--a img{
+		/* Step 01 crop — rank / values (original offsets) */
+		.pfs-visual[data-pfs-mode="crop"][data-pfs-slide="0"] .pfs-phone-slot--a img{
 			width:123.36%;
 			height:106.04%;
 			left:-14.59%;
 			top:-1.93%;
 		}
-		.pfs-phone-slot--b img{
+		.pfs-visual[data-pfs-mode="crop"][data-pfs-slide="0"] .pfs-phone-slot--b img{
 			width:126.83%;
 			height:103.39%;
 			left:-11.53%;
 			top:-2.26%;
+		}
+		/* Figma penny-case-study node 38:424 — step 04 Goal Progress phones */
+		.pfs-visual[data-pfs-mode="crop"][data-pfs-slide="3"] .pfs-phone-slot--a img{
+			width:100.1%;
+			height:101.53%;
+			left:-0.31%;
+			top:-0.03%;
+			object-fit:cover;
+		}
+		.pfs-visual[data-pfs-mode="crop"][data-pfs-slide="3"] .pfs-phone-slot--b img{
+			width:100%;
+			height:100%;
+			left:0;
+			top:0;
+			object-fit:cover;
+			object-position:center top;
 		}
 		.pfs-visual[data-pfs-mode="flat"] .pfs-phone-slot--a,
 		.pfs-visual[data-pfs-mode="flat"] .pfs-phone-slot--b{
@@ -824,8 +841,16 @@
 			background:var(--heroBg);
 			border:1px solid rgba(12, 69, 36, 0.15);
 			padding:0;
-			cursor:default;
+			cursor:pointer;
+			appearance:none;
+			-webkit-appearance:none;
+			font:inherit;
+			line-height:0;
 			transition:background-color 180ms ease, border-color 180ms ease;
+		}
+		.pfs-dot:focus-visible{
+			outline:2px solid var(--ink);
+			outline-offset:3px;
 		}
 		.pfs-dot.is-active{
 			background:var(--ink);
@@ -1717,8 +1742,8 @@
 					<h2 class="pfs-lead" id="solution-heading"><span class="pfs-brand">Penny.</span> is a budgeting assistant that helps young adults make spending decisions with more awareness.</h2>
 					<p class="pfs-sub">Penny turns budgeting from passive tracking into active reflection through priorities, tickets, trade-offs, and goal progress.</p>
 				</header>
-				<div class="pfs-visual" id="pfs-visual" data-pfs-mode="crop" data-node-id="37:296">
-					<div class="pfs-row" id="pfs-row" data-node-id="2:1392" data-pfs-index="0">
+				<div class="pfs-visual" id="pfs-visual" data-pfs-mode="crop" data-pfs-slide="0" data-node-id="37:296">
+					<div class="pfs-row" id="pfs-row" aria-labelledby="pfs-dot-1" data-node-id="2:1392" data-pfs-index="0">
 						<div class="pfs-phones" role="group" aria-label="Penny app: quick rank flow and ranked spending values" data-node-id="37:295">
 							<div class="pfs-phone-slot pfs-phone-slot--a" data-node-id="37:292">
 								<img src="assets/figma/solution-screen-rank.png" width="510" height="925" alt="Quick rank: choose between spending categories">
@@ -1732,11 +1757,11 @@
 							<p>Users rank what spending matters most to them.</p>
 						</aside>
 					</div>
-					<div class="pfs-dots" id="pfs-dots" aria-label="Solution progress">
-						<span class="pfs-dot is-active" data-dot="1" aria-hidden="true"></span>
-						<span class="pfs-dot" data-dot="2" aria-hidden="true"></span>
-						<span class="pfs-dot" data-dot="3" aria-hidden="true"></span>
-						<span class="pfs-dot" data-dot="4" aria-hidden="true"></span>
+					<div class="pfs-dots" id="pfs-dots" role="group" aria-label="Solution steps">
+						<button type="button" class="pfs-dot is-active" data-dot="1" aria-current="true" id="pfs-dot-1" aria-label="Step 1 of 4: Know My Priority"></button>
+						<button type="button" class="pfs-dot" data-dot="2" id="pfs-dot-2" aria-label="Step 2 of 4: Spending Tickets"></button>
+						<button type="button" class="pfs-dot" data-dot="3" id="pfs-dot-3" aria-label="Step 3 of 4: Flexible Trade-offs"></button>
+						<button type="button" class="pfs-dot" data-dot="4" id="pfs-dot-4" aria-label="Step 4 of 4: Goal Progress"></button>
 					</div>
 				</div>
 			</div>
@@ -2232,8 +2257,15 @@ Instead of only showing what the user spent, Penny shows what their choices help
 		for(var i=0;i<dots.length;i++){
 			var d=dots[i];
 			var dn=Number(d.dataset.dot||"0");
-			if(dn===n)d.classList.add("is-active");
-			else d.classList.remove("is-active");
+			var on=dn===n;
+			if(on){
+				d.classList.add("is-active");
+				d.setAttribute("aria-current","true");
+				row.setAttribute("aria-labelledby",d.id);
+			}else{
+				d.classList.remove("is-active");
+				d.removeAttribute("aria-current");
+			}
 		}
 	}
 
@@ -2241,7 +2273,7 @@ Instead of only showing what the user spent, Penny shows what their choices help
 	var slides=[
 		{mode:"flat",imgA:"assets/figma/solution-slide-02-a.png",imgB:"assets/figma/solution-slide-02-b.png",wA:755,hA:1648,wB:755,hB:1648,title:"02 Spending Tickets",body:"Turn budgets into simple, countable spending moments.",altA:"Penny app: day challenge and spending tickets overview",altB:"Penny app: category budget and trade flow",aria:"Penny app: spending tickets and category screens",figma:"38:450"},
 		{mode:"flat",imgA:"assets/figma/solution-slide-03-a.png",imgB:"assets/figma/solution-slide-03-b.png",wA:755,hA:1648,wB:755,hB:1648,title:"03 Flexible Trade-offs",body:"Adjust categories without losing control.",altA:"Penny app: goals and saving progress",altB:"Penny app: new routine and rebalance adjustments",aria:"Penny app: goals and flexible trade-off screens",figma:"38:390"},
-		{mode:"crop",imgA:"assets/figma/solution-slide-04-a.png",imgB:"assets/figma/solution-slide-04-b.png",wA:510,hA:925,wB:519,hB:904,title:"04 Goal Progress",body:"See how daily choices move users closer to what they care about.",altA:"Quick rank: choose between spending categories",altB:"Spending values ranked list",aria:"Penny app: goal progress and values ranking",figma:"38:414"}
+		{mode:"crop",imgA:"assets/figma/solution-38-424-phone-a.png",imgB:"assets/figma/solution-38-424-phone-b.png",wA:376,hA:791,wB:376,hB:792,title:"04 Goal Progress",body:"See how daily choices move users closer to what they care about.",altA:"Penny monthly report: spending breakdown and piggy bank categories",altB:"Penny profile: streak, aligned spending stats, and goals achieved",aria:"Penny app: monthly report and profile overview",figma:"38:424"}
 	];
 
 	var sequence=[slideIdle,slides[0],slides[1],slides[2]];
@@ -2249,9 +2281,32 @@ Instead of only showing what the user spent, Penny shows what their choices help
 	var timer=null;
 	var active=false;
 
+	function goToSlide(i){
+		i=Number(i);
+		if(isNaN(i)||i<0||i>=sequence.length)return;
+		apply(i);
+		if(timer){
+			clearInterval(timer);
+			timer=setInterval(advance,5000);
+		}
+	}
+
+	function bindDots(){
+		for(var j=0;j<dots.length;j++){
+			dots[j].addEventListener("click",function(ev){
+				var target=ev.currentTarget;
+				var dn=Number(target.dataset.dot||"0");
+				if(dn<1)return;
+				goToSlide(dn-1);
+			});
+		}
+	}
+
 	function apply(i){
+		idx=i;
 		var s=sequence[i];
 		visual.dataset.pfsMode=s.mode;
+		visual.dataset.pfsSlide=String(i);
 		imgA.src=s.imgA;
 		imgA.width=s.wA;
 		imgA.height=s.hA;
@@ -2290,6 +2345,8 @@ Instead of only showing what the user spent, Penny shows what their choices help
 		idx=0;
 		apply(idx);
 	}
+
+	bindDots();
 
 	if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
 		apply(0);
