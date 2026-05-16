@@ -603,5 +603,33 @@
 	<!-- Start of bodyEnd -->
 
     <!-- End of bodyEnd -->
+	<script>
+	(function () {
+		function cherryLogoHomeHref() {
+			return location.protocol === 'file:' ? new URL('../index.html', location.href).href : '/';
+		}
+		function fixCherryLogoHome() {
+			var dest = cherryLogoHomeHref();
+			document.querySelectorAll('#main a.framer-z6723t.framer-1gzzwvz').forEach(function (a) {
+				if (a.getAttribute('href') !== dest) a.setAttribute('href', dest);
+			});
+		}
+		function boot() {
+			fixCherryLogoHome();
+			var root = document.getElementById('main');
+			if (!root) return;
+			var t;
+			new MutationObserver(function () {
+				clearTimeout(t);
+				t = setTimeout(fixCherryLogoHome, 0);
+			}).observe(root, { subtree: true, attributes: true, attributeFilter: ['href'], childList: true });
+		}
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', boot);
+		} else {
+			boot();
+		}
+	})();
+	</script>
 </body>
 </html>
