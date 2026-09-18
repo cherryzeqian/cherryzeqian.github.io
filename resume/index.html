@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Resume — Cherry (Zeqian) Li</title>
+	<meta name="description" content="Resume of Cherry (Zeqian) Li, Product and UX Designer. Pratt Institute, 8 Bit Rental, Tencent, Amazon Music Challenge, Ticketmaster.">
+	<link rel="canonical" href="https://zeqianli.site/resume/">
+	<meta property="og:title" content="Resume — Cherry (Zeqian) Li">
+	<meta property="og:description" content="Product and UX Designer. Pratt Institute · 8 Bit Rental · Tencent.">
+	<meta property="og:url" content="https://zeqianli.site/resume/">
+	<meta property="og:type" content="website">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #111827;
+			--muted: #5b6169;
+			--hairline: #e5e7eb;
+			--rule: #171b1b;
+		}
+
+		* { box-sizing: border-box; }
+
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			min-height: 100vh;
+			background: #fff;
+			color: var(--ink);
+			font-family: "Inter", system-ui, sans-serif;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.skip {
+			position: absolute;
+			left: -9999px;
+		}
+		.skip:focus {
+			left: 16px;
+			top: 16px;
+			z-index: 100;
+			padding: 8px 12px;
+			background: #fff;
+			border: 1px solid var(--hairline);
+		}
+
+		.site-header {
+			position: sticky;
+			top: 0;
+			z-index: 20;
+			background: #fff;
+		}
+
+		.site-header__inner {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 16px 24px;
+			flex-wrap: wrap;
+			padding: 31px clamp(16px, 4.2vw, 49px) 31px clamp(16px, 3.5vw, 40px);
+		}
+
+		.site-header__brand {
+			display: block;
+			height: 52px;
+			width: 220px;
+			overflow: hidden;
+			flex-shrink: 0;
+			text-decoration: none;
+		}
+
+		.site-header__brand img {
+			display: block;
+			height: 100%;
+			width: 38.38%;
+			object-fit: cover;
+			object-position: left center;
+		}
+
+		.site-nav {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			flex-wrap: wrap;
+			gap: 16px 20px;
+			padding-top: 2px;
+			font-family: "IBM Plex Mono", ui-monospace, monospace;
+			font-weight: 500;
+			font-size: clamp(14px, 2.1vw, 24px);
+			line-height: 1.1;
+			letter-spacing: 0.23px;
+		}
+
+		.site-nav a {
+			color: var(--ink);
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+		.site-nav a:hover {
+			text-decoration: underline;
+			text-underline-offset: 5px;
+		}
+
+		.site-nav a[aria-current="page"] {
+			text-decoration: underline;
+			text-underline-offset: 5px;
+		}
+
+		.page {
+			width: min(780px, calc(100% - 40px));
+			margin: 8px auto 72px;
+		}
+
+		.toolbar {
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 18px;
+		}
+
+		.toolbar button {
+			appearance: none;
+			border: 1px solid var(--hairline);
+			background: #fff;
+			color: var(--ink);
+			font-family: "IBM Plex Mono", ui-monospace, monospace;
+			font-size: 12px;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+			padding: 8px 12px;
+			border-radius: 999px;
+			cursor: pointer;
+		}
+
+		.toolbar button:hover {
+			border-color: var(--ink);
+		}
+
+		.resume {
+			background: #fff;
+		}
+
+		h1 {
+			margin: 0 0 10px;
+			font-size: clamp(28px, 4vw, 36px);
+			font-weight: 700;
+			letter-spacing: -0.03em;
+			text-align: center;
+			line-height: 1.15;
+		}
+
+		.contact {
+			margin: 0 0 28px;
+			text-align: center;
+			font-size: 13.5px;
+			line-height: 1.55;
+			color: var(--muted);
+		}
+
+		.contact a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.contact a:hover {
+			color: var(--ink);
+			text-decoration: underline;
+			text-underline-offset: 3px;
+		}
+
+		section {
+			margin: 0 0 22px;
+		}
+
+		h2 {
+			margin: 0 0 10px;
+			padding-bottom: 6px;
+			border-bottom: 1.5px solid var(--rule);
+			font-size: 12px;
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+		}
+
+		.entry {
+			margin: 0 0 16px;
+		}
+
+		.entry:last-child {
+			margin-bottom: 0;
+		}
+
+		.row {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			gap: 16px;
+		}
+
+		.org {
+			font-size: 15px;
+			font-weight: 600;
+			line-height: 1.35;
+		}
+
+		.place,
+		.dates {
+			flex-shrink: 0;
+			font-size: 13.5px;
+			color: var(--ink);
+			text-align: right;
+		}
+
+		.role {
+			margin: 2px 0 6px;
+			font-size: 14px;
+			color: var(--ink);
+		}
+
+		.meta {
+			margin: 2px 0 0;
+			font-size: 13.5px;
+			color: var(--muted);
+		}
+
+		ul {
+			margin: 6px 0 0;
+			padding-left: 1.15em;
+		}
+
+		li {
+			margin: 0 0 5px;
+			font-size: 13.5px;
+			line-height: 1.45;
+		}
+
+		li:last-child {
+			margin-bottom: 0;
+		}
+
+		.skills {
+			margin: 0;
+			font-size: 13.5px;
+			line-height: 1.55;
+		}
+
+		@media (max-width: 640px) {
+			.site-header__inner {
+				padding: 20px 16px;
+			}
+
+			.site-header__brand {
+				width: 140px;
+				height: 40px;
+			}
+
+			.site-nav {
+				width: 100%;
+				justify-content: flex-start;
+			}
+
+			.page {
+				width: calc(100% - 32px);
+				margin-top: 4px;
+			}
+
+			.row {
+				flex-wrap: wrap;
+				gap: 2px 12px;
+			}
+
+			.place,
+			.dates {
+				text-align: left;
+			}
+		}
+
+		@media print {
+			body { background: #fff; }
+			.site-header,
+			.toolbar,
+			.skip { display: none !important; }
+			.page {
+				width: 100%;
+				margin: 0;
+			}
+			a { color: inherit; text-decoration: none; }
+			.entry { break-inside: avoid; }
+		}
+	</style>
+</head>
+<body>
+	<a class="skip" href="#resume">Skip to resume</a>
+
+	<header class="site-header">
+		<div class="site-header__inner">
+			<a class="site-header__brand" href="/" aria-label="Home">
+				<img src="../about/mcp-106-2178/logo-script.png" alt="">
+			</a>
+			<nav class="site-nav" aria-label="Primary">
+				<a href="/">DESIGN</a>
+				<a href="/about/">ABOUT</a>
+				<a href="/resume/" aria-current="page">RESUME</a>
+			</nav>
+		</div>
+	</header>
+
+	<div class="page">
+		<div class="toolbar">
+			<button type="button" onclick="window.print()">Print / Save PDF</button>
+		</div>
+
+		<article class="resume" id="resume">
+			<h1>Cherry (Zeqian) Li</h1>
+			<p class="contact">
+				<a href="tel:+8615602918925">+86 15602918925</a>
+				<span> · </span>
+				<a href="https://zeqianli.site">zeqianli.site</a>
+				<span> · </span>
+				<a href="mailto:cherryzeqian@gmail.com">cherryzeqian@gmail.com</a>
+				<span> · </span>
+				<span>New York, NY</span>
+			</p>
+
+			<section aria-labelledby="education">
+				<h2 id="education">Education</h2>
+
+				<div class="entry">
+					<div class="row">
+						<div class="org">Pratt Institute</div>
+						<div class="place">New York, NY</div>
+					</div>
+					<div class="row">
+						<div class="role">M.S. Information Experience Design (HCI)</div>
+						<div class="dates">Expected May 2027</div>
+					</div>
+					<p class="meta">GPA: 3.7/4.00</p>
+				</div>
+
+				<div class="entry">
+					<div class="row">
+						<div class="org">School of Visual Arts</div>
+						<div class="place">New York, NY</div>
+					</div>
+					<div class="row">
+						<div class="role">B.F.A. Photography and Video</div>
+						<div class="dates">Sep. 2020 – Jun. 2024</div>
+					</div>
+					<p class="meta">GPA: 3.89/4.00 · Dean’s List: 2021–2022 Term Honors</p>
+				</div>
+			</section>
+
+			<section aria-labelledby="experience">
+				<h2 id="experience">Professional Experience</h2>
+
+				<div class="entry">
+					<div class="row">
+						<div class="org">8 Bit Rental</div>
+						<div class="place">New York, NY</div>
+					</div>
+					<div class="row">
+						<div class="role">Product Designer</div>
+						<div class="dates">Jun. 2024 – Oct. 2025</div>
+					</div>
+					<ul>
+						<li>Scaled monthly active users by 45% and reduced booking time by 25% by improving the end-to-end booking experience and restructuring information architecture, enabling faster navigation.</li>
+						<li>Increased repeat booking rate to 30% by optimizing onboarding and checkout flows through A/B testing and cohort analysis, iterating on key interaction points to improve retention and reduce friction.</li>
+						<li>Generated 5,000+ users and 500+ vendor partnerships by launching a referral system and converting NAB Show (90K+ attendees) traffic into measurable acquisition, establishing scalable growth channels for the platform.</li>
+					</ul>
+				</div>
+
+				<div class="entry">
+					<div class="row">
+						<div class="org">Tencent</div>
+						<div class="place">Shenzhen, China</div>
+					</div>
+					<div class="row">
+						<div class="role">UX Designer</div>
+						<div class="dates">Jun. 2023 – Aug. 2023</div>
+					</div>
+					<ul>
+						<li>Designed onboarding experience for a global game with 180M+ players by improving website navigation and information structure during a 3-month pre-launch campaign, enabling clearer entry points for new players.</li>
+						<li>Drove pre-launch growth to 10M+ subscribers by synthesizing engagement data into player insights, refining UX messaging, and onboarding communication across social platforms and launch touchpoints.</li>
+						<li>Increased new player sign-ups by 30% by designing livestream discovery flows, preview modules, and reminder touchpoints, improving player participation and awareness during the game’s launch phase.</li>
+					</ul>
+				</div>
+
+				<div class="entry">
+					<div class="row">
+						<div class="org">School of Visual Arts</div>
+						<div class="place">New York, NY</div>
+					</div>
+					<div class="row">
+						<div class="role">Gallery Assistant</div>
+						<div class="dates">Jan. 2023 – Jun. 2024</div>
+					</div>
+					<ul>
+						<li>Improved visitor navigation and engagement across exhibitions by refining gallery layout, signage systems, and spatial flow, enabling clearer wayfinding and better understanding of exhibited works.</li>
+						<li>Coordinated exhibition setup and user-facing experiences by working with artists, curators, and operations teams, ensuring consistent execution across installations and visitor touchpoints.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section aria-labelledby="leadership">
+				<h2 id="leadership">Leadership &amp; Extracurricular Activities</h2>
+
+				<div class="entry">
+					<div class="row">
+						<div class="org">Amazon Music Challenge</div>
+						<div class="place">New York, NY</div>
+					</div>
+					<div class="row">
+						<div class="role">Product Manager</div>
+						<div class="dates">Feb. 2026 – Now</div>
+					</div>
+					<ul>
+						<li>Led a cross-functional team of 4 designers to develop a Gen Z music discovery concept for Amazon Music, defining product strategy, user journey, and feature roadmap.</li>
+						<li>Designed a product concept and prototype demonstrating new discovery flows and engagement mechanics, presented to Amazon Music mentors and industry professionals.</li>
+					</ul>
+				</div>
+
+				<div class="entry">
+					<div class="row">
+						<div class="org">Ticketmaster</div>
+						<div class="place">New York, NY</div>
+					</div>
+					<div class="row">
+						<div class="role">Product Designer</div>
+						<div class="dates">Sep. 2025 – Dec. 2025</div>
+					</div>
+					<ul>
+						<li>Increased task completion rate from 62% to 84% and reduced coordination steps by 30% by redesigning 6 core ticketing flows across search, seat selection, and checkout, informed by user research.</li>
+						<li>Reduced pricing confusion reports by 40% by introducing shared seat visibility and an in-flow group chat to support multi-user ticket coordination.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section aria-labelledby="skills">
+				<h2 id="skills">Skills</h2>
+				<p class="skills">Interaction Design · User Research · Information Architecture · Usability Testing · A/B Testing · Product Analytics</p>
+			</section>
+		</article>
+	</div>
+</body>
+</html>
