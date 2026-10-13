@@ -213,6 +213,9 @@ h1 em {
   grid-template-columns:1.15fr .85fr;
   gap:8%;
   align-items:center;
+  margin-top:125px;
+}
+.work>.project:first-of-type {
   margin-top:49px;
 }
 .project-art {
@@ -339,7 +342,6 @@ h3 a:hover {
 .nextbit {
   grid-template-columns:.8fr 1.2fr;
   gap:9%;
-  margin-top:125px;
 }
 .nextbit .project-info {
   padding-left:30px;
@@ -393,7 +395,6 @@ h3 a:hover {
 }
 .tencent {
   grid-template-columns:1.22fr .78fr;
-  margin-top:125px;
 }
 .tencent-art {
   aspect-ratio:1.05;
@@ -732,9 +733,12 @@ h3 a:hover {
     font-size:8px;
     text-align:right;
   }
-  .project,.nextbit,.tencent {
+  .project {
     grid-template-columns:1fr;
     gap:28px;
+    margin-top:65px;
+  }
+  .work>.project:first-of-type {
     margin-top:30px;
   }
   .project-art {
@@ -766,9 +770,6 @@ h3 a:hover {
   .phones img {
     width:40%;
   }
-  .nextbit {
-    margin-top:65px;
-  }
   .nextbit-art {
     grid-row:1;
   }
@@ -789,9 +790,6 @@ h3 a:hover {
   }
   .nextbit .project-info {
     padding-left:3px;
-  }
-  .tencent {
-    margin-top:65px;
   }
   .tencent-art {
     aspect-ratio:1.05;
