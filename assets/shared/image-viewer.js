@@ -29,11 +29,19 @@
     const sources = (trigger.dataset.fullSrcs || trigger.dataset.fullSrc || trigger.currentSrc || trigger.src)
       .split('|')
       .filter(Boolean);
-    stage.replaceChildren(...sources.map((source) => {
+    const crops = (trigger.dataset.fullCrops || '').split('|');
+    stage.replaceChildren(...sources.map((source, index) => {
       const expanded = document.createElement('img');
       expanded.src = source;
       expanded.alt = trigger.alt || '';
       expanded.decoding = 'async';
+      if (crops[index]) {
+        const crop = document.createElement('div');
+        crop.className = 'image-viewer-crop';
+        crop.dataset.crop = crops[index];
+        crop.append(expanded);
+        return crop;
+      }
       return expanded;
     }));
     stage.classList.toggle('is-gallery', sources.length > 1);
