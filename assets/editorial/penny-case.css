@@ -28,6 +28,7 @@
 .research-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .research-card {border-top:2px solid var(--ink);padding-top:22px}
 .research-card img {width:100%;aspect-ratio:1;object-fit:contain;background:#f1ede4;margin-bottom:22px}
+.research-card img.research-insight-bordered {border:3px solid var(--penny);border-radius:8%}
 .research-number {font:italic 20px Georgia,serif;color:var(--penny)}
 .research-card h3 {font-size:29px;margin:16px 0 14px}
 .research-card p:last-child {font-size:14px}
