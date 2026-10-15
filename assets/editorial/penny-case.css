@@ -28,7 +28,6 @@
 .research-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .research-card {border-top:2px solid var(--ink);padding-top:22px}
 .research-card img {width:100%;aspect-ratio:1;object-fit:contain;background:#f1ede4;margin-bottom:22px}
-.research-card img.research-insight-bordered {border:3px solid var(--penny);border-radius:8%}
 .research-number {font:italic 20px Georgia,serif;color:var(--penny)}
 .research-card h3 {font-size:29px;margin:16px 0 14px}
 .research-card p:last-child {font-size:14px}
@@ -58,11 +57,10 @@
 .penny-feature.reverse {grid-template-columns:1.2fr .8fr}
 .penny-feature.reverse .feature-copy {order:2}
 .penny-feature h3 {font-size:43px;letter-spacing:-1px;margin:18px 0 25px}
-.screen-pair {min-height:600px;background:var(--penny-pink-soft);display:flex;align-items:center;justify-content:center;gap:6%;padding:38px 28px 25px}
+.screen-pair {min-height:600px;background:var(--penny-pink-soft);display:grid;grid-template-rows:1fr auto;align-items:center;justify-items:center;gap:18px;padding:38px 28px 25px}
 .screen-pair.green {background:var(--penny-green-soft)}
-.screen-pair img {width:40%;max-height:530px;object-fit:contain;filter:drop-shadow(6px 14px 12px #49373d24)}
-.screen-pair img:first-child {transform:translateY(18px)}
-.screen-pair figcaption {align-self:end;margin-left:-90%;font-size:10px}
+.screen-pair img.feature-composite {width:min(100%,560px);max-height:525px;object-fit:contain;filter:none;transform:none}
+.screen-pair figcaption {align-self:end;justify-self:start;margin:0;font-size:10px}
 .testing-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
 .testing-card {display:flex;flex-direction:column;border-top:2px solid var(--ink);padding-top:22px}
 .testing-card h3 {font-size:28px;margin:15px 0}
@@ -100,6 +98,6 @@
   .penny-feature.reverse .feature-copy{order:0}
   .penny-feature h3{font-size:37px}
   .screen-pair{min-height:430px;padding:25px 15px 20px}
-  .screen-pair img{width:44%;max-height:385px}
+  .screen-pair img.feature-composite{width:min(100%,390px);max-height:385px}
   .testing-grid{gap:55px}
 }

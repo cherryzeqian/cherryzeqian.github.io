@@ -1,0 +1,20 @@
+.wireframe {
+  height: auto;
+  aspect-ratio: 1440 / 680;
+  background: #fff;
+}
+
+.wireframe img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 1000px) {
+  .wireframe {height: auto}
+}
+
+@media (max-width: 650px) {
+  .wireframe {height: auto}
+}
