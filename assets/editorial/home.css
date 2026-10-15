@@ -457,35 +457,6 @@ h3 a:hover {
 .tencent .project-info {
   padding-right:20px;
 }
-.exploration {
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:10%;
-  padding:40px 0;
-  margin-top:85px;
-  border-block:1px solid var(--line);
-}
-.exploration .eyebrow {
-  color:var(--red);
-}
-.exploration h3 {
-  font-size:33px;
-  letter-spacing:-1px;
-  margin-top:15px;
-  line-height:1.2;
-}
-.exploration>div:last-child {
-  padding-top:25px;
-}
-.exploration p {
-  font-size:14px;
-  line-height:1.8;
-  max-width:370px;
-  color:var(--muted);
-}
-.exploration .text-link {
-  margin-top:18px;
-}
 .personal {
   padding-top:108px;
   padding-bottom:105px;
@@ -796,18 +767,6 @@ h3 a:hover {
   }
   .tencent .project-info {
     padding-right:3px;
-  }
-  .exploration {
-    grid-template-columns:1fr;
-    gap:0;
-    margin-top:50px;
-    padding:30px 0;
-  }
-  .exploration h3 {
-    font-size:29px;
-  }
-  .exploration>div:last-child {
-    padding-top:18px;
   }
   .personal {
     padding-top:60px;

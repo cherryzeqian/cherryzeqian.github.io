@@ -56,7 +56,7 @@
     image.dataset.lightboxReady = 'true';
     image.tabIndex = 0;
     image.setAttribute('role', 'button');
-    image.setAttribute('aria-label', `${image.alt || 'Project image'} — click to enlarge`);
+    image.setAttribute('aria-label', `${image.alt || 'Project image'}: click to enlarge`);
     image.decoding = 'async';
     image.addEventListener('click', () => openViewer(image));
     image.addEventListener('keydown', (event) => {

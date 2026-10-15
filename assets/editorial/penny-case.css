@@ -25,12 +25,19 @@
 .challenge-grid figcaption {margin-top:16px;font-size:12px;line-height:1.55;text-transform:none;letter-spacing:0}
 .penny-insight {background:var(--penny-pink-soft)}
 .penny-insight em {color:var(--penny)}
+.research-summary {display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:42px 0 55px}
+.research-summary div {display:flex;align-items:baseline;gap:12px;padding:22px 18px;border-right:1px solid var(--line)}
+.research-summary div:last-child {border-right:0}
+.research-summary strong {font:italic 32px Georgia,serif;color:var(--penny);font-weight:400}
+.research-summary span {font-size:11px;line-height:1.35;text-transform:uppercase;letter-spacing:.9px}
 .research-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .research-card {border-top:2px solid var(--ink);padding-top:22px}
 .research-card img {width:100%;aspect-ratio:1;object-fit:contain;background:#f1ede4;margin-bottom:22px}
 .research-number {font:italic 20px Georgia,serif;color:var(--penny)}
 .research-card h3 {font-size:29px;margin:16px 0 14px}
-.research-card p:last-child {font-size:14px}
+.research-card>p {font-size:14px}
+.research-card .design-implication {border-top:1px solid var(--line);margin-top:18px;padding-top:16px;color:var(--penny-green)}
+.research-card .design-implication strong {display:block;margin-bottom:6px;font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:var(--ink)}
 .opportunity {display:grid;grid-template-columns:.65fr 1.35fr;gap:9%;align-items:start;margin-top:70px;padding:45px;background:var(--penny-green-soft)}
 .opportunity blockquote {font-size:clamp(30px,3.8vw,52px);color:var(--penny-green);letter-spacing:-1px}
 .methods-visual {margin-top:45px;padding:25px;background:#ebe7dd}
@@ -83,9 +90,11 @@
   .penny-hero-stage-copy p{font-size:38px;margin:14px 0 18px}
   .penny-hero-phones{height:390px;margin-top:8px}
   .penny-hero-phones img{width:43%;max-height:365px}
-  .challenge-grid,.research-grid,.journey-pair,.testing-grid,.pillar,.penny-feature,.penny-feature.reverse{grid-template-columns:1fr}
+  .challenge-grid,.research-summary,.research-grid,.journey-pair,.testing-grid,.pillar,.penny-feature,.penny-feature.reverse{grid-template-columns:1fr}
   .challenge-grid{gap:16px}
   .research-grid{gap:45px}
+  .research-summary div{border-right:0;border-bottom:1px solid var(--line)}
+  .research-summary div:last-child{border-bottom:0}
   .opportunity{margin-top:50px;padding:32px 24px}
   .methods-visual{padding:10px;overflow-x:auto}
   .methods-visual img{min-width:760px}
