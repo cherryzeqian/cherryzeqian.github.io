@@ -264,132 +264,6 @@
 			}
 		}
 
-		.about-footer {
-			position: relative;
-			max-width: 1204px;
-			margin: 0 auto;
-		}
-
-		.about-footer__inner {
-			padding: 97px 48px 25px 58px;
-			position: relative;
-			border-top: 1px solid var(--hairline);
-		}
-
-		.about-footer__row {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: flex-start;
-			justify-content: space-between;
-			gap: 24px;
-		}
-
-		.about-footer__brand {
-			display: flex;
-			align-items: center;
-			justify-content: flex-start;
-			gap: 10px;
-			flex: 1 1 280px;
-			padding-right: min(250px, 8vw);
-		}
-
-		.about-footer__logo {
-			flex-shrink: 0;
-			width: calc(71 / 65.51 * 65.51px);
-			height: 65.51px;
-			aspect-ratio: 71 / 65.51;
-			overflow: hidden;
-		}
-
-		.about-footer__logo img {
-			width: 100%;
-			height: 100%;
-			object-fit: contain;
-		}
-
-		.about-footer__name {
-			font-family: "Ponomar", serif;
-			font-size: 38px;
-			line-height: 27px;
-			letter-spacing: 0.36px;
-			color: var(--ink);
-		}
-
-		.about-footer__links {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-end;
-			gap: 20px;
-			flex: 1 1 200px;
-			text-align: right;
-		}
-
-		.about-footer__links a {
-			font-family: "Inter", system-ui, sans-serif;
-			font-size: 24px;
-			line-height: 32px;
-			font-weight: 400;
-			color: var(--ink);
-			text-decoration: underline;
-			text-underline-offset: 4px;
-		}
-
-		.about-footer__links a[href*="mailto"] {
-			color: #000;
-		}
-
-		.about-footer__bottom {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: center;
-			justify-content: space-between;
-			gap: 16px;
-			padding-top: 20px;
-			margin-top: 20px;
-			border-top: 1px solid var(--hairline);
-			min-height: 53px;
-		}
-
-		.about-footer__copy {
-			font-family: "Inter", system-ui, sans-serif;
-			font-size: 14px;
-			line-height: 20px;
-			color: var(--muted);
-		}
-
-		.about-footer__social {
-			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-		}
-
-		.about-footer__social a {
-			display: flex;
-			width: 30px;
-			height: 30px;
-			align-items: center;
-			justify-content: center;
-			overflow: hidden;
-		}
-
-		.about-footer__social img {
-			width: 30px;
-			height: 30px;
-			display: block;
-		}
-
-		.about-figma-source {
-			text-align: center;
-			font-family: "IBM Plex Mono", ui-monospace, monospace;
-			font-size: 11px;
-			color: var(--muted);
-			padding: 20px 16px 40px;
-		}
-
-		.about-figma-source a {
-			color: var(--ink);
-		}
-
 		@media (max-width: 900px) {
 			.about-header__inner {
 				flex-direction: column;
@@ -441,14 +315,6 @@
 				object-position: center center;
 			}
 
-			.about-footer__links {
-				align-items: flex-start;
-				text-align: left;
-			}
-
-			.about-footer__brand {
-				padding-right: 0;
-			}
 		}
 	</style>
 <link rel="stylesheet" href="../assets/shared/navigation.css">
@@ -500,63 +366,7 @@
 			</div>
 		</section>
 
-		<footer class="about-footer">
-			<div class="about-footer__inner">
-				<div class="about-footer__row">
-					<div class="about-footer__brand">
-						<div class="about-footer__logo">
-							<img src="mcp-106-2178/avatar-cherry.png" alt="">
-						</div>
-						<div class="about-footer__name">CHERRY LI</div>
-					</div>
-					<div class="about-footer__links">
-						<a href="index.html">About</a>
-						<a href="../index.html" data-about-contact>Contact</a>
-					</div>
-				</div>
-				<div class="about-footer__bottom">
-					<div class="about-footer__copy">© 2025 Cherry (Zeqian Li)</div>
-					<div class="about-footer__social">
-						<a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-							<img src="mcp-106-2178/linkedin.svg" width="30" height="30" alt="">
-						</a>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-		<p class="about-figma-source">
-			<a href="https://www.figma.com/design/WP6jrbRdDLz55FgWeONkaI/penny-case-study?node-id=106-2178&amp;t=HZ9dJIDGVYUhztiA-4">Source frame in Figma (106-2178)</a>
-		</p>
 	</main>
 
-	<script>
-		addEventListener("DOMContentLoaded", function () {
-			var file = location.protocol === "file:";
-			if (file) {
-				var home = new URL("../index.html", location.href).href;
-				var selfPg = new URL("index.html", location.href).href;
-				var qh = document.querySelector("[data-about-home]");
-				var qd = document.querySelector("[data-about-design]");
-				var qb = document.querySelector("[data-about-about]");
-				var qc = document.querySelector("[data-about-contact]");
-				if (qh) qh.href = home;
-				if (qd) qd.href = home;
-				if (qb) qb.href = selfPg;
-				if (qc) qc.href = home;
-			} else {
-				var root = "/";
-				var ab = "/about/";
-				var qh2 = document.querySelector("[data-about-home]");
-				var qd2 = document.querySelector("[data-about-design]");
-				var qb2 = document.querySelector("[data-about-about]");
-				var qc2 = document.querySelector("[data-about-contact]");
-				if (qh2) qh2.href = root;
-				if (qd2) qd2.href = root;
-				if (qb2) qb2.href = ab;
-				if (qc2) qc2.href = root;
-			}
-		});
-	</script>
 </body>
 </html>
