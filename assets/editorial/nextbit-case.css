@@ -1,0 +1,63 @@
+.nextbit-hero-stage {
+  grid-template-columns: .85fr 1.15fr;
+  gap: 8%;
+  padding: 55px 7% 34px;
+  overflow: hidden;
+}
+
+.nextbit-hero-stage .nextbit-hero-devices {
+  grid-column: 2;
+  width: auto;
+  height: 520px;
+  max-height: 520px;
+  max-width: none;
+  justify-self: center;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.video-stage video {
+  display: block;
+  width: 260px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 31px;
+  box-shadow: 0 14px 25px #0002;
+  background: #0b0b0c;
+  cursor: pointer;
+}
+
+.video-stage video:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 6px;
+}
+
+@media (max-width: 1000px) {
+  .nextbit-hero-stage .nextbit-hero-devices {
+    height: 440px;
+  }
+}
+
+@media (max-width: 650px) {
+  .nextbit-hero-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .nextbit-hero-stage .stage-note,
+  .nextbit-hero-stage .nextbit-hero-devices {
+    grid-column: 1;
+  }
+
+  .nextbit-hero-stage .nextbit-hero-devices {
+    width: auto;
+    height: 390px;
+    max-width: 100%;
+  }
+
+  .video-stage video {
+    width: 240px;
+    border-radius: 28px;
+  }
+}
