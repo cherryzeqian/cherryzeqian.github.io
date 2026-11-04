@@ -405,15 +405,16 @@ h3 a:hover {
 }
 .vibesync-art> a>img {
   position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:54% center;
+  top:19%;
+  left:6%;
+  width:88%;
+  height:64%;
+  object-fit:contain;
+  object-position:center;
   transition:transform .45s ease;
 }
 .vibesync-art a:hover>img {
-  transform:scale(1.018);
+  transform:translateY(-6px);
 }
 .vibesync-art .art-caption {
   color:#fff;
@@ -660,9 +661,10 @@ h3 a:hover {
     height:67%;
   }
   .vibesync-art> a>img {
-    inset:0;
-    width:100%;
-    height:100%;
+    top:20%;
+    left:5%;
+    width:90%;
+    height:63%;
   }
   .art-caption {
     left:18px;
