@@ -393,7 +393,7 @@ h3 a:hover {
   padding-left:30px;
 }
 .vibesync-art {
-  background:#050505;
+  background:#000;
   aspect-ratio:1.05;
 }
 .vibesync-cover-heading {
@@ -405,10 +405,10 @@ h3 a:hover {
 }
 .vibesync-art> a>img {
   position:absolute;
-  top:19%;
-  left:6%;
-  width:88%;
-  height:64%;
+  top:17%;
+  left:2%;
+  width:96%;
+  height:70%;
   object-fit:contain;
   object-position:center;
   transition:transform .45s ease;
@@ -661,10 +661,10 @@ h3 a:hover {
     height:67%;
   }
   .vibesync-art> a>img {
-    top:20%;
-    left:5%;
-    width:90%;
-    height:63%;
+    top:17%;
+    left:2%;
+    width:96%;
+    height:70%;
   }
   .art-caption {
     left:18px;
