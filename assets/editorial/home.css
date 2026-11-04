@@ -251,7 +251,7 @@ h1 em {
   gap:6%;
 }
 .phones img {
-  width:40%;
+  width:36%;
   max-height:100%;
   object-fit:contain;
   filter:drop-shadow(6px 14px 10px #743f3430);
@@ -640,7 +640,7 @@ h3 a:hover {
     gap:5%;
   }
   .phones img {
-    width:43%;
+    width:38.7%;
   }
   .nextbit,.vibesync,.penny {
     gap:6%;
@@ -791,7 +791,7 @@ h3 a:hover {
     inset:25% 10% 16%;
   }
   .phones img {
-    width:40%;
+    width:36%;
   }
   .nextbit-art,.vibesync-art,.penny-art {
     grid-row:1;
